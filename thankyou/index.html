@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thank You! Your Free Book is Coming | The Wire-Wrapped Jewelry Handbook</title>
+  <meta name="description" content="Thank you for downloading The Wire-Wrapped Jewelry Handbook! Check your email for your free copy and discover how to unlock your exclusive Wire Wrapped Bonus Bundle.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --forest:        #0B2F35;
+      --forest-mid:    #1C5760;
+      --teal:          #2E7F8C;
+      --sage:          #2E86A0;
+      --sage-soft:     #E8F2F5;
+      --terracotta:    #B5612F;
+      --gold:          #D4924F;
+      --gold-pale:     #F7EBDF;
+      --gold-bright:   #DAA269;
+      --cream:         #FEF9F0;
+      --cream-dark:    #F9EEDE;
+      --warm-white:    #FEFCF8;
+      --text:          #1E1E1E;
+      --text-secondary:#5A5A5A;
+      --text-muted:    #8A8A8A;
+      --white:         #FFFFFF;
+      --shadow-sm:     0 2px 8px rgba(11,47,53,0.06);
+      --shadow-md:     0 8px 30px rgba(11,47,53,0.10);
+      --shadow-lg:     0 20px 50px rgba(11,47,53,0.14);
+      --shadow-book:   0 25px 60px rgba(0,0,0,0.30), 0 6px 16px rgba(0,0,0,0.15);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--cream);
+      color: var(--text);
+      font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    img { max-width: 100%; height: auto; display: block; }
+
+    /* ======================== HERO ======================== */
+    .hero {
+      background: var(--forest);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--sage));
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: -40%; right: -15%;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(46,127,140,0.3) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 3.5rem 2rem 3rem;
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-book {
+      flex-shrink: 0;
+      width: 195px;
+    }
+
+    .book-wrap { position: relative; }
+
+    .book-cover {
+      width: 100%;
+      border-radius: 4px;
+      box-shadow: var(--shadow-book);
+      transform: perspective(900px) rotateY(-5deg);
+      transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .book-cover:hover {
+      transform: perspective(900px) rotateY(0deg) scale(1.03);
+    }
+
+    .book-wrap::before {
+      content: "";
+      position: absolute;
+      left: -3px; top: 2%;
+      width: 6px; height: 96%;
+      background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(0,0,0,0.15));
+      border-radius: 2px 0 0 2px;
+      transform: perspective(900px) rotateY(-5deg);
+    }
+
+    .hero-text {
+      flex: 1;
+      color: var(--white);
+    }
+
+    .confirmed-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--gold-bright);
+      margin-bottom: 1rem;
+    }
+
+    .confirmed-tag svg {
+      width: 18px; height: 18px;
+      fill: none;
+      stroke: var(--gold-bright);
+      stroke-width: 2.5;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      line-height: 1.18;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.01em;
+    }
+
+    .hero-desc {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.78);
+      max-width: 400px;
+    }
+
+    /* ======================== MAIN CONTENT ======================== */
+    .main-content {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 2rem;
+    }
+
+    .email-heading {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .email-heading h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.65rem;
+      font-weight: 700;
+      color: var(--forest);
+      margin-bottom: 0.4rem;
+    }
+
+    .email-heading p {
+      font-size: 1rem;
+      color: var(--text-secondary);
+    }
+
+    /* Steps */
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-bottom: 2.5rem;
+      position: relative;
+    }
+
+    .steps::before {
+      content: "";
+      position: absolute;
+      left: 19px;
+      top: 28px;
+      bottom: 28px;
+      width: 2px;
+      background: linear-gradient(180deg, var(--teal), var(--sage));
+      opacity: 0.25;
+    }
+
+    .step {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      padding: 0.95rem 0;
+    }
+
+    .step-dot {
+      width: 40px; height: 40px;
+      flex-shrink: 0;
+      background: var(--forest);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-weight: 700;
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 0 0 4px var(--cream);
+    }
+
+    .step p {
+      font-size: 1.05rem;
+      color: var(--text);
+    }
+
+    .step strong {
+      color: var(--forest);
+      font-weight: 600;
+    }
+
+    .divider {
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--terracotta), var(--gold));
+      margin: 0 auto 2.5rem;
+      border-radius: 2px;
+    }
+
+    /* Tips */
+    .tips {
+      background: var(--warm-white);
+      padding: 1.5rem 1.6rem;
+      border-radius: 0.75rem;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 2.5rem;
+    }
+
+    .tips-title {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--forest);
+      margin-bottom: 0.7rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .tips-title svg {
+      width: 16px; height: 16px;
+      stroke: var(--terracotta);
+      fill: none;
+      stroke-width: 2;
+    }
+
+    .tips ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .tips li {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      padding: 0.25rem 0;
+      padding-left: 1.3rem;
+      position: relative;
+    }
+
+    .tips li::before {
+      content: "";
+      position: absolute;
+      left: 0; top: 0.55rem;
+      width: 6px; height: 6px;
+      background: var(--sage);
+      border-radius: 50%;
+    }
+
+    .tips li strong { color: var(--text); }
+
+    /* ======================== TRUST BAR ======================== */
+    .trust {
+      background: var(--forest);
+      padding: 1.6rem 1.5rem;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .trust::before,
+    .trust::after {
+      content: "";
+      position: absolute;
+      top: 0; width: 80px; height: 100%;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .trust::before {
+      left: 0;
+      background: linear-gradient(90deg, var(--forest), transparent);
+    }
+
+    .trust::after {
+      right: 0;
+      background: linear-gradient(-90deg, var(--forest), transparent);
+    }
+
+    .trust-inner {
+      max-width: 700px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      color: rgba(255,255,255,0.85);
+      font-size: 0.88rem;
+      white-space: nowrap;
+    }
+
+    .trust-icon {
+      width: 32px; height: 32px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.95rem;
+    }
+
+    .trust-item strong {
+      color: var(--white);
+      font-weight: 700;
+    }
+
+    /* ======================== BONUS ======================== */
+    .bonus {
+      background: linear-gradient(175deg, var(--cream-dark) 0%, var(--cream) 100%);
+      padding: 3.5rem 1.5rem 3rem;
+    }
+
+    .bonus-inner {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .bonus-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .bonus-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      margin-bottom: 0.5rem;
+    }
+
+    .bonus h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--forest);
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+    }
+
+    .bonus-sub {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      line-height: 1.55;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    /* Two-column card */
+    .bonus-card {
+      background: var(--white);
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      display: grid;
+      grid-template-columns: 360px 1fr;
+    }
+
+   .bonus-visual {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+
+.bonus-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+    .bonus-content {
+      padding: 1.75rem 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .bonus-content h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--forest);
+      margin-bottom: 0.6rem;
+      line-height: 1.25;
+    }
+
+    .bonus-content > p {
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      line-height: 1.55;
+      margin-bottom: 1rem;
+    }
+
+    /* What's included items */
+    .included {
+      margin-bottom: 1.2rem;
+    }
+
+    .included-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.4rem 0;
+    }
+
+    .included-icon {
+      width: 36px; height: 36px;
+      flex-shrink: 0;
+      background: var(--sage-soft);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--sage);
+    }
+
+    .included-text {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    /* Email CTA button */
+    .email-cta-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      background: var(--forest);
+      color: var(--white);
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding: 0.9rem 1.6rem;
+      border-radius: 0.6rem;
+      text-decoration: none;
+      box-shadow: 0 4px 14px rgba(11,47,53,0.25);
+      letter-spacing: 0.01em;
+    }
+
+    .cta-icon {
+      display: flex;
+      align-items: center;
+      opacity: 0.8;
+    }
+
+    .cta-arrow {
+      opacity: 0.6;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    /* ======================== FOOTER ======================== */
+    footer {
+      background: var(--forest);
+      color: rgba(255,255,255,0.55);
+      text-align: center;
+      padding: 1.4rem 1.5rem;
+      font-size: 0.8rem;
+      line-height: 1.55;
+    }
+
+    .footer-contact {
+      color: rgba(255,255,255,0.8);
+      font-size: 0.88rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .footer-contact strong { color: var(--white); }
+
+    footer a {
+      color: var(--gold-bright);
+      text-decoration: none;
+    }
+
+    footer a:hover { text-decoration: underline; }
+
+    /* ======================== ANIMATIONS ======================== */
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-inner   { animation: slideUp 0.55s ease-out; }
+    .main-content { animation: slideUp 0.55s 0.1s ease-out both; }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+
+    /* ======================== RESPONSIVE ======================== */
+    @media (max-width: 700px) {
+      .hero-inner {
+        flex-direction: column;
+        text-align: center;
+        padding: 2.5rem 1.5rem 2rem;
+        gap: 1.5rem;
+      }
+
+      .hero-book { width: 150px; }
+      .book-cover, .book-wrap::before { transform: none; }
+      .hero h1 { font-size: 1.6rem; }
+
+      .hero-desc {
+        margin: 0 auto;
+        font-size: 0.95rem;
+      }
+
+      .main-content {
+        padding: 2.5rem 1.25rem 1.5rem;
+      }
+
+      .email-heading h2 { font-size: 1.4rem; }
+
+      .trust-inner {
+        flex-direction: column;
+        gap: 0.8rem;
+        align-items: center;
+      }
+
+      .trust::before, .trust::after { display: none; }
+
+      /* Bonus card stacks on mobile */
+      .bonus-card {
+        grid-template-columns: 1fr;
+      }
+
+      .bonus-content {
+        padding: 1.5rem 1.25rem;
+      }
+
+      .bonus-content h3 {
+        font-size: 1.15rem;
+      }
+
+      .bonus h2 { font-size: 1.45rem; }
+    }
+
+    @media (min-width: 900px) {
+      .hero-inner { padding: 4rem 2rem 3.5rem; }
+      .hero-book  { width: 220px; }
+      .hero h1    { font-size: 2.6rem; }
+      .email-heading h2 { font-size: 1.85rem; }
+      .bonus h2   { font-size: 2rem; }
+      .bonus-card { grid-template-columns: 360px 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============== HERO ============== -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-book">
+        <div class="book-wrap">
+          <img src="cover.wirewrapped.jpg" alt="The Wire-Wrapped Jewelry Handbook – Book Cover" class="book-cover" />
+        </div>
+      </div>
+      <div class="hero-text">
+        <div class="confirmed-tag">
+          <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          Confirmed — You're all set
+        </div>
+        <h1>Your Free Wire-Wrapped Jewelry Guide Is on Its Way</h1>
+        <p class="hero-desc">Great choice. We've sent your personal copy straight to your inbox, it should arrive within the next few minutes.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== MAIN CONTENT ============== -->
+  <div class="main-content">
+    <div class="email-heading">
+      <h2>Grab Your Copy in 3 Simple Steps</h2>
+      <p>Your download link is waiting in your inbox right now.</p>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-dot">1</div>
+        <p>Open your <strong>email app</strong> (Gmail, Yahoo, Outlook…)</p>
+      </div>
+      <div class="step">
+        <div class="step-dot">2</div>
+        <p>Look for the message from <strong>Nancy Ellery</strong></p>
+      </div>
+      <div class="step">
+        <div class="step-dot">3</div>
+        <p>Tap the <strong>download link</strong> inside — and enjoy!</p>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="tips">
+      <div class="tips-title">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+        Don't see it? Here's where to look
+      </div>
+      <ul>
+        <li>Check your <strong>Spam</strong> or <strong>Promotions</strong> folder</li>
+        <li>Search for "<strong>Nancy Ellery</strong>" in your inbox</li>
+        <li>Take a look in <strong>Junk Mail</strong></li>
+        <li>Add our address to your contacts for future messages</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ============== TRUST BAR ============== -->
+  <section class="trust">
+    <div class="trust-inner">
+      <div class="trust-item">
+        <span class="trust-icon">📖</span>
+        <span>Downloaded by <strong>5,000+</strong> readers</span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-icon">⭐</span>
+        <span>Rated <strong>4.8 / 5</strong> on Amazon</span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-icon">💍</span>
+        <span><strong>32</strong> step-by-step techniques</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== BONUS ============== -->
+  <section class="bonus">
+    <div class="bonus-inner">
+      <div class="bonus-header">
+        <p class="bonus-label">🎁 Exclusive Bonus</p>
+        <h2>There's More Waiting for You</h2>
+        <p class="bonus-sub">An exclusive toolkit to find the right wire, give every piece a shop-quality finish, and share your work with confidence.</p>
+      </div>
+
+      <div class="bonus-card">
+        <div class="bonus-visual">
+          <img src="bonus.wirewrapped.svg" alt="Wire Wrapped Bonus Bundle" />
+        </div>
+        <div class="bonus-content">
+          <h3>Your Wire Wrapped Bonus Bundle</h3>
+          <p>Everything you need to complement your handbook: where to buy your supplies, how to finish a piece like a pro, and what to do when people ask where they can buy one.</p>
+
+          <div class="included">
+            <div class="included-item">
+              <div class="included-icon">✓</div>
+              <div class="included-text">Recommended Shops List</div>
+            </div>
+            <div class="included-item">
+              <div class="included-icon">✓</div>
+              <div class="included-text">Professional Finishing Guide</div>
+            </div>
+            <div class="included-item">
+              <div class="included-icon">✓</div>
+              <div class="included-text">Guide to Selling Your Pieces</div>
+            </div>
+          </div>
+
+          <div class="email-cta-btn">
+            <span class="cta-icon">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,4 12,13 2,4"/></svg>
+            </span>
+            Check Your Email for Details
+            <span class="cta-arrow">→</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== FOOTER ============== -->
+  <footer>
+    <p class="footer-contact">
+      <strong>Questions?</strong> Simply reply to any of our emails — we're happy to help.
+    </p>
+    <p>
+      © 2026 Nancy Ellery · All rights reserved ·
+      <a href="https://s3.privyr.com/privacy/privacy-policy.html?d=eyJlbWFpbCI6InZpcHJlYWRlcnNAdGxiLXB1Ymxpc2hpbmcuY29tIiwiY29tcGFueSI6IlRMQiBQdWJsaXNoaW5nIiwiZ2VuX2F0IjoiMjAyNi0wOS0yOVQxNToxNzoxMC4wOThaIn0=" target="_blank" rel="noopener">Privacy Policy</a>
+    </p>
+  </footer>
+
+</body>
+</html>

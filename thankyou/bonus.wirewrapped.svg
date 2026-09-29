@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
+  <rect width="800" height="800" fill="#0B2F35"/>
+  <rect x="40" y="40" width="720" height="720" fill="none" stroke="#D4924F" stroke-width="4"/>
+  <text x="400" y="200" text-anchor="middle" font-size="96">🎁</text>
+  <text x="400" y="366" text-anchor="middle" font-family="Georgia, serif" font-size="58" font-weight="700" fill="#FEF9F0">Wire Wrapped</text>
+  <text x="400" y="434" text-anchor="middle" font-family="Georgia, serif" font-size="58" font-weight="700" fill="#FEF9F0">Bonus Bundle</text>
+  <rect x="340" y="492" width="120" height="4" fill="#B5612F"/>
+</svg>
