@@ -589,6 +589,12 @@
       .bonus h2   { font-size: 2rem; }
       .bonus-card { grid-template-columns: 360px 1fr; }
     }
+
+    /* Desktop: la colonna dell'immagine è alta quanto il testo accanto; il quadrato resta intero, centrato sul colore scuro */
+    @media (min-width: 701px) {
+      .bonus-visual { aspect-ratio: auto; display: flex; align-items: center; background: var(--forest); }
+      .bonus-visual img { height: auto; aspect-ratio: 1 / 1; }
+    }
   </style>
 </head>
 <body>
@@ -679,7 +685,7 @@
 
       <div class="bonus-card">
         <div class="bonus-visual">
-          <img src="bonus.wirewrapped.svg" alt="Wire Wrapped Bonus Bundle" />
+          <img src="bonus.wirewrapped.png" alt="Wire Wrapped Bonus Bundle" />
         </div>
         <div class="bonus-content">
           <h3>Your Wire Wrapped Bonus Bundle</h3>
