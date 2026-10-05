@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>Thanks for Grabbing the Book! | The Wire-Wrapped Jewelry Handbook</title>
+  <meta name="description" content="Your Wire Wrapped Bonus Bundle is waiting: here's what you'll gain and how to get it.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --forest:        #0B2F35;
+      --forest-mid:    #1C5760;
+      --teal:          #2E7F8C;
+      --sage:          #2E86A0;
+      --sage-soft:     #E8F2F5;
+      --terracotta:    #B5612F;
+      --gold:          #D4924F;
+      --gold-pale:     #F7EBDF;
+      --gold-bright:   #DAA269;
+      --cream:         #FEF9F0;
+      --cream-dark:    #F9EEDE;
+      --warm-white:    #FEFCF8;
+      --text:          #1E1E1E;
+      --text-secondary:#5A5A5A;
+      --white:         #FFFFFF;
+      --shadow-sm:     0 2px 8px rgba(11,47,53,0.06);
+      --shadow-lg:     0 20px 50px rgba(11,47,53,0.14);
+      --shadow-book:   0 25px 60px rgba(0,0,0,0.30), 0 6px 16px rgba(0,0,0,0.15);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--cream);
+      color: var(--text);
+      font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    img { max-width: 100%; height: auto; display: block; }
+
+    /* ======================== HERO ======================== */
+    .hero {
+      background: var(--forest);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--sage));
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: -40%; right: -15%;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(46,127,140,0.3) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 3.5rem 2rem 3rem;
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-book {
+      flex-shrink: 0;
+      width: 195px;
+    }
+
+    .book-wrap { position: relative; }
+
+    .book-cover {
+      width: 100%;
+      border-radius: 4px;
+      box-shadow: var(--shadow-book);
+      transform: perspective(900px) rotateY(-5deg);
+    }
+
+    .book-wrap::before {
+      content: "";
+      position: absolute;
+      left: -3px; top: 2%;
+      width: 6px; height: 96%;
+      background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(0,0,0,0.15));
+      border-radius: 2px 0 0 2px;
+      transform: perspective(900px) rotateY(-5deg);
+    }
+
+    .hero-text {
+      flex: 1;
+      color: var(--white);
+    }
+
+    .author {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      margin-bottom: 1.1rem;
+      color: rgba(255,255,255,0.85);
+      font-size: 0.95rem;
+    }
+
+    .author img {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      box-shadow: 0 0 0 2px var(--gold-bright);
+      object-fit: cover;
+    }
+
+    .author strong {
+      color: var(--white);
+      font-weight: 600;
+      display: block;
+      line-height: 1.2;
+    }
+
+    .author span { font-size: 0.82rem; color: rgba(255,255,255,0.65); }
+
+    .hero h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      line-height: 1.18;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.01em;
+    }
+
+    .hero-desc {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.78);
+      max-width: 420px;
+    }
+
+    /* ======================== BONUS ======================== */
+    .bonus {
+      background: linear-gradient(175deg, var(--cream-dark) 0%, var(--cream) 100%);
+      padding: 3.25rem 1.5rem 2.5rem;
+    }
+
+    .bonus-inner {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .bonus-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .bonus-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      margin-bottom: 0.5rem;
+    }
+
+    .bonus h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--forest);
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+    }
+
+    .bonus-sub {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      line-height: 1.55;
+      max-width: 540px;
+      margin: 0 auto;
+    }
+
+    .bonus-card {
+      background: var(--white);
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      display: grid;
+      grid-template-columns: 340px 1fr;
+    }
+
+    .bonus-visual {
+      position: relative;
+      display: flex;
+      align-items: center;
+      background: var(--forest);
+    }
+
+    .bonus-visual img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      display: block;
+    }
+
+    .bonus-content {
+      padding: 1.75rem 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .bonus-content h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--forest);
+      margin-bottom: 0.9rem;
+      line-height: 1.25;
+    }
+
+    .included { margin: 0; }
+
+    .included-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 0.45rem 0;
+    }
+
+    .included-icon {
+      width: 36px; height: 36px;
+      flex-shrink: 0;
+      background: var(--sage-soft);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--sage);
+      margin-top: 0.1rem;
+    }
+
+    .included-text {
+      font-size: 0.92rem;
+      color: var(--text);
+      line-height: 1.45;
+    }
+
+    .included-text strong { color: var(--forest); font-weight: 600; }
+
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      background: var(--forest);
+      color: var(--white);
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 1rem 2rem;
+      border-radius: 0.6rem;
+      text-decoration: none;
+      box-shadow: 0 4px 14px rgba(11,47,53,0.25);
+    }
+
+    .cta-btn:focus-visible { outline: 3px solid var(--gold-bright); outline-offset: 3px; }
+
+    .cta-arrow { opacity: 0.7; }
+
+    /* ======================== CTA ======================== */
+    .main-content {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 2.25rem 1.5rem 3.25rem;
+      text-align: center;
+    }
+
+    .unlock {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.35rem;
+      line-height: 1.3;
+      color: var(--forest);
+      margin-bottom: 1.4rem;
+    }
+
+    .unlock strong { font-weight: 700; }
+
+    /* ======================== FOOTER ======================== */
+    footer {
+      background: var(--forest);
+      color: rgba(255,255,255,0.55);
+      text-align: center;
+      padding: 1.4rem 1.5rem;
+      font-size: 0.8rem;
+      line-height: 1.55;
+    }
+
+    footer a {
+      color: var(--gold-bright);
+      text-decoration: none;
+    }
+
+    footer a:hover { text-decoration: underline; }
+
+    /* ======================== MOTION ======================== */
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-inner { animation: slideUp 0.55s ease-out; }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+
+    /* ======================== RESPONSIVE ======================== */
+    @media (max-width: 700px) {
+      .hero-inner {
+        flex-direction: column;
+        text-align: center;
+        padding: 2.5rem 1.5rem 2.25rem;
+        gap: 1.5rem;
+      }
+
+      .hero-book { width: 150px; }
+      .book-cover, .book-wrap::before { transform: none; }
+      .hero h1 { font-size: 1.6rem; }
+      .hero-desc { margin: 0 auto; font-size: 0.95rem; }
+      .author { text-align: left; }
+
+      .bonus { padding: 2.5rem 1.25rem 2rem; }
+      .bonus h2 { font-size: 1.45rem; }
+      .bonus-card { grid-template-columns: 1fr; }
+      .bonus-content { padding: 1.5rem 1.25rem; }
+      .bonus-content h3 { font-size: 1.15rem; }
+      .cta-btn { width: 100%; align-self: stretch; }
+
+      .main-content { padding: 1.75rem 1.25rem 2.5rem; }
+      .unlock { font-size: 1.15rem; }
+    }
+
+    @media (min-width: 900px) {
+      .hero-inner { padding: 4rem 2rem 3.5rem; }
+      .hero-book  { width: 220px; }
+      .hero h1    { font-size: 2.6rem; }
+      .bonus h2   { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============== HERO ============== -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-book">
+        <div class="book-wrap">
+          <img src="cover.wirewrapped.jpg" alt="The Wire-Wrapped Jewelry Handbook – Book Cover" class="book-cover" />
+        </div>
+      </div>
+      <div class="hero-text">
+        <div class="author">
+          <img src="logo.wirewrapped.png" alt="" />
+          <div>
+            <strong>Nancy Ellery</strong>
+            <span>Author of The Wire-Wrapped Jewelry Handbook</span>
+          </div>
+        </div>
+        <h1>Thanks for Grabbing the Book!</h1>
+        <p class="hero-desc">You've just taken the first real step toward finishing a piece you'll be proud to wear, starting with the wire and stones you already have.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== BONUS ============== -->
+  <section class="bonus">
+    <div class="bonus-inner">
+      <div class="bonus-header">
+        <p class="bonus-label">🎁 Your free bonus</p>
+        <h2>Here's what you'll gain</h2>
+        <p class="bonus-sub">Your free bonus bundle picks up where the handbook leaves off: where to buy your supplies, how to give every piece a shop-quality finish, and what to do when people ask where they can buy one.</p>
+      </div>
+
+      <div class="bonus-card">
+        <div class="bonus-visual">
+          <img src="bonus.wirewrapped.png" alt="Wire Wrapped Bonus Bundle" />
+        </div>
+        <div class="bonus-content">
+          <h3>Your Wire Wrapped Bonus Bundle</h3>
+
+          <div class="included">
+            <div class="included-item">
+              <div class="included-icon">✓</div>
+              <div class="included-text"><strong>Trusted Supply Shops</strong> – the right wire, stones and tools, and exactly where to get them</div>
+            </div>
+            <div class="included-item">
+              <div class="included-icon">✓</div>
+              <div class="included-text"><strong>Finish Like a Pro</strong> – a polished or deliberately darkened piece, sealed so the shine lasts for months</div>
+            </div>
+            <div class="included-item">
+              <div class="included-icon">✓</div>
+              <div class="included-text"><strong>Make Your First Sale</strong> – how to price, present and photograph a piece, so you become the person people ask for one</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== CTA ============== -->
+  <div class="main-content">
+    <p class="unlock">Click below to unlock your <strong>Bonus Bundle</strong>!</p>
+    <a class="cta-btn" href="access/">
+      GO TO DOWNLOADS
+      <span class="cta-arrow">→</span>
+    </a>
+  </div>
+
+  <!-- ============== FOOTER ============== -->
+  <footer>
+    <p>
+      © 2026 Nancy Ellery · All rights reserved ·
+      <a href="https://s3.privyr.com/privacy/privacy-policy.html?d=eyJlbWFpbCI6InZpcHJlYWRlcnNAdGxiLXB1Ymxpc2hpbmcuY29tIiwiY29tcGFueSI6IlRMQiBQdWJsaXNoaW5nIiwiZ2VuX2F0IjoiMjAyNi0wOS0yOVQxNToxNzoxMC4wOThaIn0=" target="_blank" rel="noopener">Privacy Policy</a>
+    </p>
+  </footer>
+
+</body>
+</html>

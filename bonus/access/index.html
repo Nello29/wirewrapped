@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>Get Your Wire Wrapped Bonus Bundle | The Wire-Wrapped Jewelry Handbook</title>
+  <meta name="description" content="Enter your name and email to unlock your Wire Wrapped Bonus Bundle.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --forest:        #0B2F35;
+      --forest-mid:    #1C5760;
+      --teal:          #2E7F8C;
+      --sage:          #2E86A0;
+      --sage-soft:     #E8F2F5;
+      --terracotta:    #B5612F;
+      --gold:          #D4924F;
+      --gold-pale:     #F7EBDF;
+      --gold-bright:   #DAA269;
+      --cream:         #FEF9F0;
+      --cream-dark:    #F9EEDE;
+      --warm-white:    #FEFCF8;
+      --text:          #1E1E1E;
+      --text-secondary:#5A5A5A;
+      --white:         #FFFFFF;
+      --shadow-sm:     0 2px 8px rgba(11,47,53,0.06);
+      --shadow-lg:     0 20px 50px rgba(11,47,53,0.14);
+      --shadow-book:   0 25px 60px rgba(0,0,0,0.30), 0 6px 16px rgba(0,0,0,0.15);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: linear-gradient(175deg, var(--cream-dark) 0%, var(--cream) 100%);
+      color: var(--text);
+      font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    img { max-width: 100%; height: auto; display: block; }
+
+    /* ======================== TOP BAND ======================== */
+    .band {
+      background: var(--forest);
+      position: relative;
+      overflow: hidden;
+      padding: 2.4rem 1.5rem 3.6rem;
+    }
+
+    .band::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--sage));
+    }
+
+    .band::after {
+      content: "";
+      position: absolute;
+      top: -40%; right: -15%;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(46,127,140,0.3) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .band-inner {
+      max-width: 640px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      color: var(--white);
+    }
+
+    .band-inner .eyebrow {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 0.3rem;
+    }
+
+    .band-inner h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    /* ======================== CARDS ======================== */
+    .cards {
+      max-width: 640px;
+      margin: -2.4rem auto 0;
+      padding: 0 1.25rem 3rem;
+      position: relative;
+      z-index: 2;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: var(--white);
+      border-radius: 1rem;
+      box-shadow: var(--shadow-lg);
+      padding: 2rem 1.5rem 2.2rem;
+      text-align: center;
+    }
+
+    .card-step {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--forest);
+      margin-bottom: 0.6rem;
+    }
+
+    .card-step .dot {
+      width: 30px; height: 30px;
+      background: var(--forest);
+      color: var(--white);
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    .card h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--forest);
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .card p {
+      font-size: 1rem;
+      color: var(--text);
+      margin-bottom: 0.9rem;
+    }
+
+    .card .muted {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+
+    .book-cover {
+      width: 150px;
+      margin: 0 auto 1.3rem;
+      border-radius: 4px;
+      box-shadow: var(--shadow-book);
+    }
+
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      background: var(--forest);
+      color: var(--white);
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 1rem 2rem;
+      border: 0;
+      border-radius: 0.6rem;
+      text-decoration: none;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(11,47,53,0.25);
+    }
+
+    .cta-btn:focus-visible { outline: 3px solid var(--gold-bright); outline-offset: 3px; }
+
+    .cta-btn.review { background: var(--terracotta); }
+
+    .cta-arrow { opacity: 0.7; }
+
+    /* Form */
+    .form {
+      text-align: left;
+      max-width: 460px;
+      margin: 0 auto;
+    }
+
+    .field { margin-bottom: 1rem; }
+
+    .field label {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--forest);
+      margin-bottom: 0.35rem;
+    }
+
+    .field input {
+      width: 100%;
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 1rem;
+      color: var(--text);
+      padding: 0.85rem 1rem;
+      border: 1.5px solid var(--cream-dark);
+      border-radius: 0.6rem;
+      background: var(--warm-white);
+      outline: none;
+    }
+
+    .field input:focus {
+      border-color: var(--teal);
+      box-shadow: 0 0 0 3px var(--sage-soft);
+      background: var(--white);
+    }
+
+    .form .actions {
+      text-align: center;
+      margin-top: 1.4rem;
+    }
+
+    .form .privacy-note {
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      text-align: center;
+      margin: 0.9rem 0 0;
+    }
+
+    /* ======================== FOOTER ======================== */
+    footer {
+      background: var(--forest);
+      color: rgba(255,255,255,0.55);
+      text-align: center;
+      padding: 1.4rem 1.5rem;
+      font-size: 0.8rem;
+      line-height: 1.55;
+    }
+
+    footer a {
+      color: var(--gold-bright);
+      text-decoration: none;
+    }
+
+    footer a:hover { text-decoration: underline; }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .cards { animation: slideUp 0.55s ease-out; }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+
+    @media (max-width: 480px) {
+      .card { padding: 1.6rem 1.1rem 1.8rem; }
+      .band-inner h1 { font-size: 1.5rem; }
+      .cta-btn { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============== TOP BAND ============== -->
+  <section class="band">
+    <div class="band-inner">
+      <p class="eyebrow">Almost there, two quick steps</p>
+      <h1>Your Wire Wrapped Bonus Bundle</h1>
+    </div>
+  </section>
+
+  <div class="cards">
+    <!-- ============== STEP 1: REVIEW ============== -->
+    <div class="card">
+      <p class="card-step"><span class="dot">1</span> Leave a review</p>
+      <h2>Share a Quick Review</h2>
+      <img src="cover.wirewrapped.jpg" alt="The Wire-Wrapped Jewelry Handbook – Book Cover" class="book-cover" />
+      <p>Please leave a short, helpful review (less than 30 seconds) of your new &quot;The Wire-Wrapped Jewelry Handbook&quot;.</p>
+      <p class="muted">(optional, but I'd really love to get your feedback 😍)</p>
+      <a class="cta-btn review" href="https://www.amazon.com/s?k=The+Wire-Wrapped+Jewelry+Handbook+Nancy+Ellery" target="_blank" rel="noopener">
+        Leave a Review on Amazon
+        <span class="cta-arrow">→</span>
+      </a>
+    </div>
+
+    <!-- ============== STEP 2: GET ACCESS ============== -->
+    <div class="card">
+      <p class="card-step"><span class="dot">2</span> Get access</p>
+      <h2>Unlock Your Bonus</h2>
+      <p>Enter your name and email to download your Wire Wrapped Bonus Bundle.</p>
+
+      <form class="form" method="post" action="https://www.aweber.com/scripts/addlead.pl">
+        <input type="hidden" name="listname" value="awlist6977806" />
+        <input type="hidden" name="redirect" value="https://drive.google.com/drive/folders/1mlNG7yF9Rm1aX7XKBL1jQsgQtgshph45?usp=drive_link" />
+        <input type="hidden" name="meta_redirect_onlist" value="https://drive.google.com/drive/folders/1mlNG7yF9Rm1aX7XKBL1jQsgQtgshph45?usp=drive_link" />
+        <input type="hidden" name="meta_adtracking" value="qr wire wrapped" />
+        <input type="hidden" name="meta_required" value="name,email" />
+        <input type="hidden" name="meta_forward_vars" value="0" />
+        <input type="hidden" name="meta_tags" value="funnel wire wrapped" />
+        <div class="field">
+          <label for="name">Name</label>
+          <input id="name" type="text" name="name" autocomplete="given-name" required />
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" type="email" name="email" autocomplete="email" required />
+        </div>
+        <div class="actions">
+          <button class="cta-btn" type="submit" name="submit">
+            INSTANT BONUS ACCESS
+            <span class="cta-arrow">→</span>
+          </button>
+        </div>
+        <p class="privacy-note">Your details are only used to send your bonus and the occasional book update. No spam, ever.</p>
+      </form>
+
+      <p class="muted" style="margin: 1.4rem 0 0;">Thanks again, and enjoy your reading 😊</p>
+    </div>
+  </div>
+
+  <!-- ============== FOOTER ============== -->
+  <footer>
+    <p>
+      © 2026 Nancy Ellery · All rights reserved ·
+      <a href="https://s3.privyr.com/privacy/privacy-policy.html?d=eyJlbWFpbCI6InZpcHJlYWRlcnNAdGxiLXB1Ymxpc2hpbmcuY29tIiwiY29tcGFueSI6IlRMQiBQdWJsaXNoaW5nIiwiZ2VuX2F0IjoiMjAyNi0wOS0yOVQxNToxNzoxMC4wOThaIn0=" target="_blank" rel="noopener">Privacy Policy</a>
+    </p>
+  </footer>
+
+</body>
+</html>
