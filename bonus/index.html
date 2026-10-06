@@ -395,7 +395,7 @@
       background: transparent;
       color: var(--forest);
       box-shadow: inset 0 0 0 2px var(--forest);
-      transition: background 1.2s ease 0.5s, color 1.2s ease 0.5s;
+      transition: background 1.2s ease, color 1.2s ease;
     }
 
     .js .included-item.visible .included-icon { background: var(--forest); color: var(--white); }
@@ -405,10 +405,10 @@
     .js .included-item.reveal:nth-child(3) { transition-delay: 0.9s; }
     .js .included-item.reveal:nth-child(4) { transition-delay: 1.35s; }
 
-    /* e i numeri si accendono a 0,7 s di distanza, ciascuno dopo che la sua voce è comparsa */
-    .js .included-item:nth-child(2) .included-icon { transition-delay: 1.2s; }
-    .js .included-item:nth-child(3) .included-icon { transition-delay: 1.9s; }
-    .js .included-item:nth-child(4) .included-icon { transition-delay: 2.6s; }
+    /* e ogni numero si accende insieme alla sua voce: stesso ritardo */
+    .js .included-item:nth-child(2) .included-icon { transition-delay: 0.45s; }
+    .js .included-item:nth-child(3) .included-icon { transition-delay: 0.9s; }
+    .js .included-item:nth-child(4) .included-icon { transition-delay: 1.35s; }
 
 
     /* un riflesso di luce attraversa i bottoni ogni pochi secondi */
