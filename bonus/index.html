@@ -166,21 +166,23 @@
     }
 
     .bonus-label {
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
       color: var(--terracotta);
-      margin-bottom: 0.5rem;
+      line-height: 1.15;
+      margin-bottom: 0.4rem;
     }
 
-    .bonus h2 {
+    .bonus-gain {
       font-family: 'Playfair Display', Georgia, serif;
-      font-size: 1.75rem;
-      font-weight: 700;
+      font-size: 1.3rem;
+      font-weight: 600;
       color: var(--forest);
-      margin-bottom: 0.5rem;
-      line-height: 1.2;
+      margin-bottom: 0.6rem;
+      line-height: 1.25;
     }
 
     .bonus-sub {
@@ -347,7 +349,8 @@
       .author { text-align: left; }
 
       .bonus { padding: 2.5rem 1.25rem 2rem; }
-      .bonus h2 { font-size: 1.45rem; }
+      .bonus-label { font-size: 1.5rem; }
+      .bonus-gain { font-size: 1.15rem; }
       .bonus-card { grid-template-columns: 1fr; }
       .bonus-content { padding: 1.5rem 1.25rem; }
       .bonus-content h3 { font-size: 1.15rem; }
@@ -361,7 +364,7 @@
       .hero-inner { padding: 4rem 2rem 3.5rem; }
       .hero-book  { width: 220px; }
       .hero h1    { font-size: 2.6rem; }
-      .bonus h2   { font-size: 2rem; }
+      .bonus-label { font-size: 2.3rem; }
     }
   </style>
 </head>
@@ -393,8 +396,8 @@
   <section class="bonus">
     <div class="bonus-inner">
       <div class="bonus-header">
-        <p class="bonus-label">🎁 Your free bonus</p>
-        <h2>Here's what you'll gain</h2>
+        <h2 class="bonus-label">🎁 Your free bonus</h2>
+        <p class="bonus-gain">Here's what you'll gain</p>
         <p class="bonus-sub">Your free bonus bundle picks up where the handbook leaves off: where to buy your supplies, how to give every piece a shop-quality finish, and what to do when people ask where they can buy one.</p>
       </div>
 
