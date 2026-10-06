@@ -212,6 +212,14 @@
 
     .hero .cta-btn { margin-top: 1.2rem; }
 
+    /* decorazione facoltativa del singolo libro (qr.bridge.decorazione): fuori dal flusso, sotto i contenuti, mai sul
+       testo. «curva»: un filo lungo il bordo della fascia, dietro l'immagine del bundle */
+    .bonus { overflow-x: clip; }
+    .decorazione { position: absolute; z-index: 0; pointer-events: none; user-select: none; }
+    /* «curva» copre solo la parte curva del bordo (alta quanto il raggio verticale, 56 px; 80 sui computer) più 4 px
+       sopra e sotto per lo spessore del filo: il file disegna la metà bassa di un'ellisse in viewBox 0 -4 1000 108 */
+    .decorazione--curva { top: calc(150px - 56px * 1.04); left: 0; width: 100%; height: calc(56px * 1.08); opacity: 0.9; }
+
     /* ======================== LE VOCI ======================== */
     /* il blu della fascia scende e finisce in una curva; l'immagine del bundle sta a cavallo, metà sul blu e metà sul chiaro */
     .hero { padding-bottom: 0.4rem; }
@@ -505,6 +513,7 @@
 
       .bonus { padding: 0.4rem 1.5rem 1.5rem; }
       .bonus::before { height: 190px; border-radius: 0 0 50% 50% / 0 0 80px 80px; }
+      .decorazione--curva { top: calc(190px - 80px * 1.04); height: calc(80px * 1.08); }
       .bonus-visual img { max-width: 300px; }
       .bonus-card { max-width: 640px; }
       .bonus-content { padding: 1.6rem 1.8rem 1.4rem; }
@@ -543,6 +552,7 @@
 
   <!-- ============== LE VOCI ============== -->
   <section class="bonus">
+    <img class="decorazione decorazione--curva" src="decorazione.wirewrapped.svg" alt="" aria-hidden="true" width="1000" height="150" />
     <div class="bonus-visual">
       <img src="bonus.wirewrapped.jpg" alt="Wire Wrapped Bonus Bundle" width="600" height="600" />
     </div>
