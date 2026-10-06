@@ -74,11 +74,14 @@
     .cta-btn:focus-visible { outline: 3px solid var(--forest); outline-offset: 3px; }
     .cta-arrow { opacity: 0.75; }
 
-    /* sulla fascia scura il bottone è oro chiaro con testo scuro */
+    /* sulla fascia scura il bottone è rame lucido, come il filo: dall'oro schiarito all'oro chiaro, con un filo di luce in alto
+       e un'ombra interna in basso. Sotto il testo non c'è mai un colore più scuro dell'oro chiaro, la coppia che il controllo
+       dei contrasti misura già («Confirmed» e link del piè di pagina). */
     .hero .cta-btn {
-      background: var(--gold-bright);
+      background-color: var(--gold-bright);
+      background-image: linear-gradient(180deg, color-mix(in srgb, var(--gold-bright) 55%, white) 0%, var(--gold-bright) 60%);
       color: var(--forest);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.55), inset 0 -3px 0 rgba(0,0,0,0.14), 0 6px 20px rgba(0,0,0,0.35);
     }
 
     .hero .cta-btn:focus-visible { outline-color: var(--white); }
@@ -376,10 +379,10 @@
     .js .note.reveal .avatar { transition: transform 0.5s cubic-bezier(.2,1.4,.4,1) 0.35s; transform: translateX(-50%) scale(0.6); }
     .js .note.visible .avatar { transform: translateX(-50%) scale(1); }
 
-    /* un riflesso di luce attraversa il bottone oro ogni pochi secondi */
-    .hero .cta-btn { position: relative; overflow: hidden; }
+    /* un riflesso di luce attraversa i bottoni ogni pochi secondi */
+    .cta-btn { position: relative; overflow: hidden; }
 
-    .hero .cta-btn::after {
+    .cta-btn::after {
       content: "";
       position: absolute;
       top: 0; left: -60%;
@@ -390,13 +393,19 @@
       pointer-events: none;
     }
 
+    /* sul bottone scuro il riflesso è più tenue, e parte sfasato rispetto a quello in alto */
+    .closing .cta-btn::after {
+      background: linear-gradient(100deg, transparent, rgba(255,255,255,0.22), transparent);
+      animation-delay: 3s;
+    }
+
     @keyframes riflesso {
       0% { left: -60%; }
       30%, 100% { left: 130%; }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .hero .cta-btn::after { display: none; }
+      .cta-btn::after { display: none; }
       .cta-btn { transition: none; }
     }
 
