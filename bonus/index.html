@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex" />
-  <title>Thanks for Grabbing the Book! | The Wire-Wrapped Jewelry Handbook</title>
+  <title>Your Free Bonus | The Wire-Wrapped Jewelry Handbook</title>
   <meta name="description" content="Your Wire Wrapped Bonus Bundle is waiting: here's what you'll gain and how to get it.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -33,22 +33,64 @@
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
+    /* Pensata per il telefono: una colonna, testo da 16px, bottoni alti almeno 54px.
+       Chi scansiona cerca il bonus: il primo schermo è il bonus col bottone; il grazie del pen name chiude la pagina. */
     body {
       background: var(--cream);
       color: var(--text);
       font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
-      line-height: 1.6;
+      font-size: 1rem;
+      line-height: 1.55;
       -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust: 100%;
       overflow-x: hidden;
     }
 
     img { max-width: 100%; height: auto; display: block; }
 
-    /* ======================== HERO ======================== */
+    .cta-btn {
+      display: flex;
+      width: 100%;
+      min-height: 54px;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      background: var(--forest);
+      color: var(--white);
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 0.9rem 1.5rem;
+      border-radius: 0.7rem;
+      text-decoration: none;
+      box-shadow: 0 6px 18px rgba(11,47,53,0.28);
+      -webkit-tap-highlight-color: transparent;
+      transition: transform 0.12s ease;
+    }
+
+    .cta-btn:active { transform: scale(0.98); }
+    .cta-btn:focus-visible { outline: 3px solid var(--forest); outline-offset: 3px; }
+    .cta-arrow { opacity: 0.75; }
+
+    /* sulla fascia scura il bottone è oro chiaro con testo scuro */
+    .hero .cta-btn {
+      background: var(--gold-bright);
+      color: var(--forest);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    }
+
+    .hero .cta-btn:focus-visible { outline-color: var(--white); }
+    footer a:focus-visible { outline: 2px solid var(--white); outline-offset: 2px; }
+
+    /* ======================== HERO: il bonus ======================== */
     .hero {
       background: var(--forest);
       position: relative;
       overflow: hidden;
+      padding: 1.5rem 1rem 1.6rem;
+      color: var(--white);
     }
 
     .hero::before {
@@ -62,254 +104,308 @@
     .hero::after {
       content: "";
       position: absolute;
-      top: -40%; right: -15%;
-      width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(46,127,140,0.3) 0%, transparent 70%);
+      top: -30%; right: -40%;
+      width: 520px; height: 520px;
+      background: radial-gradient(circle, rgba(46,127,140,0.32) 0%, transparent 70%);
       pointer-events: none;
     }
 
     .hero-inner {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 3.5rem 2rem 3rem;
-      display: flex;
-      align-items: center;
-      gap: 3rem;
       position: relative;
       z-index: 1;
-    }
-
-    .hero-book {
-      flex-shrink: 0;
-      width: 195px;
-    }
-
-    .book-wrap { position: relative; }
-
-    .book-cover {
-      width: 100%;
-      border-radius: 4px;
-      box-shadow: var(--shadow-book);
-      transform: perspective(900px) rotateY(-5deg);
-    }
-
-    .book-wrap::before {
-      content: "";
-      position: absolute;
-      left: -3px; top: 2%;
-      width: 6px; height: 96%;
-      background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(0,0,0,0.15));
-      border-radius: 2px 0 0 2px;
-      transform: perspective(900px) rotateY(-5deg);
-    }
-
-    .hero-text {
-      flex: 1;
-      color: var(--white);
-    }
-
-    .author {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.7rem;
-      margin-bottom: 1.1rem;
-      color: rgba(255,255,255,0.85);
-      font-size: 0.95rem;
-    }
-
-    .author img {
-      width: 48px; height: 48px;
-      border-radius: 50%;
-      box-shadow: 0 0 0 2px var(--gold-bright);
-      object-fit: cover;
-    }
-
-    .author strong {
-      color: var(--white);
-      font-weight: 600;
-      display: block;
-      line-height: 1.2;
-    }
-
-    .author span { font-size: 0.82rem; color: rgba(255,255,255,0.65); }
-
-    .hero h1 {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 2.2rem;
-      font-weight: 700;
-      line-height: 1.18;
-      margin-bottom: 0.75rem;
-      letter-spacing: -0.01em;
-    }
-
-    .hero-desc {
-      font-size: 1.05rem;
-      line-height: 1.6;
-      color: rgba(255,255,255,0.78);
-      max-width: 420px;
-    }
-
-    /* ======================== BONUS ======================== */
-    .bonus {
-      background: linear-gradient(175deg, var(--cream-dark) 0%, var(--cream) 100%);
-      padding: 3.25rem 1.5rem 2.5rem;
-    }
-
-    .bonus-inner {
-      max-width: 760px;
+      max-width: 560px;
       margin: 0 auto;
-    }
-
-    .bonus-header {
       text-align: center;
-      margin-bottom: 2rem;
     }
 
     .bonus-label {
       font-family: 'DM Sans', system-ui, sans-serif;
-      font-size: 2rem;
+      font-size: 1.6rem;
       font-weight: 800;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.05em;
       text-transform: uppercase;
-      color: var(--terracotta);
+      color: var(--gold-bright);
       line-height: 1.15;
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.3rem;
     }
 
     .bonus-gain {
       font-family: 'Playfair Display', Georgia, serif;
-      font-size: 1.3rem;
+      font-size: 1.25rem;
       font-weight: 600;
-      color: var(--forest);
-      margin-bottom: 0.6rem;
       line-height: 1.25;
+      margin-bottom: 0.35rem;
     }
 
     .bonus-sub {
       font-size: 1rem;
-      color: var(--text-secondary);
-      line-height: 1.55;
-      max-width: 540px;
-      margin: 0 auto;
+      line-height: 1.5;
+      color: rgba(255,255,255,0.82);
+      margin-bottom: 0.7rem;
     }
 
-    .bonus-card {
-      background: var(--white);
-      border-radius: 1rem;
-      overflow: hidden;
-      box-shadow: var(--shadow-lg);
-      display: grid;
-      grid-template-columns: 340px 1fr;
+    /* i nomi dei bonus come testo: chi arriva da un riquadro del libro ci riconosce il suo */
+    .titles {
+      list-style: none;
+      counter-reset: bonus;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.45rem;
+    }
+
+    .titles li {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 999px;
+      padding: 0.3rem 0.85rem 0.3rem 0.35rem;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.3;
+    }
+
+    /* numerati come le voci più sotto: 1, 2, 3 */
+    .titles li::before {
+      counter-increment: bonus;
+      content: counter(bonus);
+      width: 1.35rem; height: 1.35rem;
+      border-radius: 50%;
+      background: var(--gold-bright);
+      color: var(--forest);
+      font-size: 0.78rem;
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .hero .cta-btn { margin-top: 1.2rem; }
+
+    /* ======================== LE VOCI ======================== */
+    /* il blu della fascia scende e finisce in una curva; l'immagine del bundle sta a cavallo, metà sul blu e metà sul chiaro */
+    .hero { padding-bottom: 0.4rem; }
+
+    .bonus {
+      position: relative;
+      background: var(--cream);
+      padding: 0.4rem 1rem 1.25rem;
+    }
+
+    .bonus::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 150px;
+      background: var(--forest);
+      border-radius: 0 0 50% 50% / 0 0 56px 56px;
     }
 
     .bonus-visual {
       position: relative;
-      display: flex;
-      align-items: center;
-      background: var(--forest);
+      z-index: 1;
+      padding-top: 0.6rem;
     }
 
     .bonus-visual img {
       width: 100%;
-      height: auto;
+      max-width: 250px;
+      margin: 0 auto;
       aspect-ratio: 1 / 1;
       object-fit: cover;
-      display: block;
+      border-radius: 0.7rem;
+      box-shadow: 0 24px 50px rgba(0,0,0,0.38);
     }
 
-    .bonus-content {
-      padding: 1.75rem 2rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+    .bonus-card {
+      position: relative;
+      z-index: 1;
+      max-width: 560px;
+      margin: 1.4rem auto 0;
+      background: var(--white);
+      border-radius: 1rem;
+      box-shadow: var(--shadow-lg);
     }
 
-    .bonus-content h3 {
+    .bonus-content { padding: 1.35rem 1.1rem 1.1rem; }
+
+    .card-title {
       font-family: 'Playfair Display', Georgia, serif;
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       font-weight: 700;
       color: var(--forest);
-      margin-bottom: 0.9rem;
       line-height: 1.25;
+      margin-bottom: 0.6rem;
     }
 
-    .included { margin: 0; }
+    .included { list-style: none; }
 
     .included-item {
       display: flex;
       align-items: flex-start;
-      gap: 0.75rem;
-      padding: 0.45rem 0;
+      gap: 0.8rem;
+      padding: 0.6rem 0;
     }
 
+    .included-item + .included-item { border-top: 1px solid var(--cream-dark); }
+
     .included-icon {
-      width: 36px; height: 36px;
+      width: 34px; height: 34px;
       flex-shrink: 0;
-      background: var(--sage-soft);
-      border-radius: 10px;
+      background: var(--forest);
+      color: var(--white);
+      border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 0.95rem;
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 1rem;
       font-weight: 700;
-      color: var(--sage);
-      margin-top: 0.1rem;
+      font-variant-numeric: lining-nums;
     }
 
     .included-text {
-      font-size: 0.92rem;
+      font-size: 1rem;
       color: var(--text);
       line-height: 1.45;
     }
 
-    .included-text strong { color: var(--forest); font-weight: 600; }
+    .included-text strong { color: var(--forest); font-weight: 700; }
 
-    .cta-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.6rem;
-      background: var(--forest);
-      color: var(--white);
-      font-family: 'DM Sans', system-ui, sans-serif;
-      font-size: 1rem;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      padding: 1rem 2rem;
-      border-radius: 0.6rem;
-      text-decoration: none;
-      box-shadow: 0 4px 14px rgba(11,47,53,0.25);
+    /* ======================== IL BIGLIETTO DEL PEN NAME ======================== */
+    .closing {
+      max-width: 560px;
+      margin: 0 auto;
+      padding: 1.25rem 1rem 2.25rem;
+      text-align: center;
     }
 
-    .cta-btn:focus-visible { outline: 3px solid var(--gold-bright); outline-offset: 3px; }
+    .note {
+      position: relative;
+      padding-top: 38px;
+      margin-bottom: 1.6rem;
+    }
 
-    .cta-arrow { opacity: 0.7; }
+    .avatar {
+      position: absolute;
+      top: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 76px; height: 76px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--gold-bright);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+      z-index: 2;
+    }
 
-    /* ======================== CTA ======================== */
-    .main-content {
-      max-width: 640px;
-      margin: 0 auto;
-      padding: 2.25rem 1.5rem 3.25rem;
-      text-align: center;
+    .bubble {
+      background: var(--forest);
+      border-radius: 1.1rem;
+      padding: 2.9rem 1.25rem 1.3rem;
+      color: var(--white);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .bubble h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 0.55rem;
+    }
+
+    .note-text {
+      font-size: 1rem;
+      line-height: 1.5;
+      color: rgba(255,255,255,0.85);
+    }
+
+    .sign {
+      margin-top: 0.8rem;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-style: italic;
+      font-size: 1.05rem;
+      color: var(--gold-bright);
+      line-height: 1.3;
+    }
+
+    .sign span {
+      display: block;
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-style: normal;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.6);
+      margin-top: 0.15rem;
     }
 
     .unlock {
       font-family: 'Playfair Display', Georgia, serif;
-      font-size: 1.35rem;
+      font-size: 1.2rem;
       line-height: 1.3;
       color: var(--forest);
-      margin-bottom: 1.4rem;
+      margin-bottom: 1rem;
     }
 
     .unlock strong { font-weight: 700; }
+    .unlock span { white-space: nowrap; }
+
+    /* ======================== MOVIMENTO ======================== */
+    /* Solo sotto il primo schermo, e solo se lo script parte (classe .js): senza script la pagina è tutta visibile. */
+    .js .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .js .reveal.visible { opacity: 1; transform: none; }
+
+    /* i numeri delle voci si accendono quando la voce entra nello schermo */
+    .js .included-icon {
+      background: transparent;
+      color: var(--forest);
+      box-shadow: inset 0 0 0 2px var(--forest);
+      transition: background 0.4s ease 0.3s, color 0.4s ease 0.3s;
+    }
+
+    .js .included-item.visible .included-icon { background: var(--forest); color: var(--white); }
+
+    .js .note.reveal .avatar { transition: transform 0.5s cubic-bezier(.2,1.4,.4,1) 0.35s; transform: translateX(-50%) scale(0.6); }
+    .js .note.visible .avatar { transform: translateX(-50%) scale(1); }
+
+    /* un riflesso di luce attraversa il bottone oro ogni pochi secondi */
+    .hero .cta-btn { position: relative; overflow: hidden; }
+
+    .hero .cta-btn::after {
+      content: "";
+      position: absolute;
+      top: 0; left: -60%;
+      width: 40%; height: 100%;
+      background: linear-gradient(100deg, transparent, rgba(255,255,255,0.55), transparent);
+      transform: skewX(-20deg);
+      animation: riflesso 4.5s ease-in-out 1.5s infinite;
+      pointer-events: none;
+    }
+
+    @keyframes riflesso {
+      0% { left: -60%; }
+      30%, 100% { left: 130%; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero .cta-btn::after { display: none; }
+      .cta-btn { transition: none; }
+    }
 
     /* ======================== FOOTER ======================== */
     footer {
       background: var(--forest);
-      color: rgba(255,255,255,0.55);
+      color: rgba(255,255,255,0.6);
       text-align: center;
-      padding: 1.4rem 1.5rem;
+      padding: 1.2rem 1rem calc(1.2rem + env(safe-area-inset-bottom));
       font-size: 0.8rem;
       line-height: 1.55;
     }
@@ -321,120 +417,97 @@
 
     footer a:hover { text-decoration: underline; }
 
-    /* ======================== MOTION ======================== */
-    @keyframes slideUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    .hero-inner { animation: slideUp 0.55s ease-out; }
-
-    @media (prefers-reduced-motion: reduce) {
-      * { animation: none !important; transition: none !important; }
-    }
-
-    /* ======================== RESPONSIVE ======================== */
-    @media (max-width: 700px) {
-      .hero-inner {
-        flex-direction: column;
-        text-align: center;
-        padding: 2.5rem 1.5rem 2.25rem;
-        gap: 1.5rem;
-      }
-
-      .hero-book { width: 150px; }
-      .book-cover, .book-wrap::before { transform: none; }
-      .hero h1 { font-size: 1.6rem; }
-      .hero-desc { margin: 0 auto; font-size: 0.95rem; }
-      .author { text-align: left; }
-
-      .bonus { padding: 2.5rem 1.25rem 2rem; }
-      .bonus-label { font-size: 1.5rem; }
-      .bonus-gain { font-size: 1.15rem; }
-      .bonus-card { grid-template-columns: 1fr; }
-      .bonus-content { padding: 1.5rem 1.25rem; }
-      .bonus-content h3 { font-size: 1.15rem; }
-      .cta-btn { width: 100%; align-self: stretch; }
-
-      .main-content { padding: 1.75rem 1.25rem 2.5rem; }
-      .unlock { font-size: 1.15rem; }
-    }
-
-    @media (min-width: 900px) {
-      .hero-inner { padding: 4rem 2rem 3.5rem; }
-      .hero-book  { width: 220px; }
-      .hero h1    { font-size: 2.6rem; }
+    /* ======================== SCHERMI PIÙ LARGHI ======================== */
+    @media (min-width: 720px) {
+      .hero { padding: 2.75rem 1.5rem 0.6rem; }
+      .hero-inner { max-width: 680px; }
+      .hero .cta-btn { max-width: 380px; margin: 1.5rem auto 0; }
       .bonus-label { font-size: 2.3rem; }
+      .bonus-gain { font-size: 1.45rem; }
+      .bonus-sub { font-size: 1.08rem; }
+
+      .bonus { padding: 0.4rem 1.5rem 1.5rem; }
+      .bonus::before { height: 190px; border-radius: 0 0 50% 50% / 0 0 80px 80px; }
+      .bonus-visual img { max-width: 300px; }
+      .bonus-card { max-width: 640px; }
+      .bonus-content { padding: 1.6rem 1.8rem 1.4rem; }
+
+      .closing { padding: 1.75rem 1.5rem 3rem; }
+      .avatar { width: 88px; height: 88px; }
+      .note { padding-top: 44px; }
+      .bubble { padding: 3.3rem 2.5rem 1.6rem; }
+      .bubble h2 { font-size: 1.9rem; }
+      .closing .cta-btn { max-width: 380px; margin: 0 auto; }
+      .unlock { font-size: 1.35rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- ============== HERO ============== -->
+  <main>
+  <!-- ============== IL BONUS (primo schermo) ============== -->
   <section class="hero">
     <div class="hero-inner">
-      <div class="hero-book">
-        <div class="book-wrap">
-          <img src="cover.wirewrapped.jpg" alt="The Wire-Wrapped Jewelry Handbook – Book Cover" class="book-cover" />
-        </div>
-      </div>
-      <div class="hero-text">
-        <div class="author">
-          <img src="logo.wirewrapped.png" alt="" />
-          <div>
-            <strong>Nancy Ellery</strong>
-            <span>Author of The Wire-Wrapped Jewelry Handbook</span>
-          </div>
-        </div>
-        <h1>Thanks for Grabbing the Book!</h1>
-        <p class="hero-desc">You've just taken the first real step toward finishing a piece you'll be proud to wear, starting with the wire and stones you already have.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============== BONUS ============== -->
-  <section class="bonus">
-    <div class="bonus-inner">
-      <div class="bonus-header">
-        <h2 class="bonus-label">🎁 Your free bonus</h2>
+      <div class="hero-head">
+        <h1 class="bonus-label">🎁 Your free bonus</h1>
         <p class="bonus-gain">Here's what you'll gain</p>
-        <p class="bonus-sub">Your free bonus bundle picks up where the handbook leaves off: where to buy your supplies, how to give every piece a shop-quality finish, and what to do when people ask where they can buy one.</p>
+        <p class="bonus-sub">All 3 free guides from the book, including the one you just scanned for:</p>
+        <ul class="titles">
+          <li>Trusted Supply Shops</li>
+          <li>Finish Like a Pro</li>
+          <li>Make Your First Sale</li>
+        </ul>
       </div>
+      <a class="cta-btn" href="access/">
+        GO TO DOWNLOADS
+        <span class="cta-arrow">→</span>
+      </a>
+    </div>
+  </section>
 
-      <div class="bonus-card">
-        <div class="bonus-visual">
-          <img src="bonus.wirewrapped.png" alt="Wire Wrapped Bonus Bundle" />
-        </div>
-        <div class="bonus-content">
-          <h3>Your Wire Wrapped Bonus Bundle</h3>
-
-          <div class="included">
-            <div class="included-item">
-              <div class="included-icon">✓</div>
-              <div class="included-text"><strong>Trusted Supply Shops</strong> – the right wire, stones and tools, and exactly where to get them</div>
-            </div>
-            <div class="included-item">
-              <div class="included-icon">✓</div>
-              <div class="included-text"><strong>Finish Like a Pro</strong> – a polished or deliberately darkened piece, sealed so the shine lasts for months</div>
-            </div>
-            <div class="included-item">
-              <div class="included-icon">✓</div>
-              <div class="included-text"><strong>Make Your First Sale</strong> – how to price, present and photograph a piece, so you become the person people ask for one</div>
-            </div>
-          </div>
-        </div>
+  <!-- ============== LE VOCI ============== -->
+  <section class="bonus">
+    <div class="bonus-visual">
+      <img src="bonus.wirewrapped.jpg" alt="Wire Wrapped Bonus Bundle" width="600" height="600" />
+    </div>
+    <div class="bonus-card">
+      <div class="bonus-content">
+        <h2 class="card-title">Your Wire Wrapped Bonus Bundle</h2>
+        <ol class="included">
+          <li class="included-item">
+            <span class="included-icon" aria-hidden="true">1</span>
+            <span class="included-text"><strong>Trusted Supply Shops</strong> – the shops for wire, tools, stones and findings, and what each one is reliable for, kept current</span>
+          </li>
+          <li class="included-item">
+            <span class="included-icon" aria-hidden="true">2</span>
+            <span class="included-text"><strong>Finish Like a Pro</strong> – the finish professionals give a piece before it leaves the bench, step by step with the exact products named, so a bright piece stays bright and an antique look lasts</span>
+          </li>
+          <li class="included-item">
+            <span class="included-icon" aria-hidden="true">3</span>
+            <span class="included-text"><strong>Make Your First Sale</strong> – price a piece with confidence, photograph and display it, and have your answer ready when someone asks where they can buy one</span>
+          </li>
+        </ol>
       </div>
     </div>
   </section>
 
-  <!-- ============== CTA ============== -->
-  <div class="main-content">
-    <p class="unlock">Click below to unlock your <strong>Bonus Bundle</strong>!</p>
+  <!-- ============== IL GRAZIE DEL PEN NAME + INVITO FINALE ============== -->
+  <section class="closing">
+    <div class="note">
+      <img class="avatar" src="logo.wirewrapped.png" alt="Nancy Ellery" width="88" height="88" />
+      <div class="bubble">
+        <h2>Thanks for Grabbing the Book!</h2>
+        <p class="note-text">My first supplies sat in a drawer for a whole year before I figured things out by trial and error. I wrote this book so your start is a lot smoother than mine. I'm so glad you're here.</p>
+        <p class="sign">— Nancy Ellery<span>Author of The Wire-Wrapped Jewelry Handbook</span></p>
+      </div>
+    </div>
+    <p class="unlock">Click below to unlock<br><span>your <strong>Bonus Bundle</strong>!</span></p>
     <a class="cta-btn" href="access/">
       GO TO DOWNLOADS
       <span class="cta-arrow">→</span>
     </a>
-  </div>
+  </section>
+  </main>
 
   <!-- ============== FOOTER ============== -->
   <footer>
@@ -444,5 +517,25 @@
     </p>
   </footer>
 
+  <script>
+    // Comparsa allo scorrimento. Chi ha chiesto meno movimento, o un browser senza IntersectionObserver, vede la pagina ferma.
+    (function () {
+      if (!("IntersectionObserver" in window) || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      document.documentElement.classList.add("js");
+      var elementi = document.querySelectorAll(".included-item, .note, .unlock");
+      var osservatore = new IntersectionObserver(function (voci) {
+        voci.forEach(function (voce) {
+          if (voce.isIntersecting) {
+            voce.target.classList.add("visible");
+            osservatore.unobserve(voce.target);
+          }
+        });
+      }, { threshold: 0.25, rootMargin: "0px 0px -30px 0px" });
+      elementi.forEach(function (el) {
+        el.classList.add("reveal");
+        osservatore.observe(el);
+      });
+    })();
+  </script>
 </body>
 </html>
