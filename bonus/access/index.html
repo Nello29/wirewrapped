@@ -229,14 +229,10 @@
       width: 40%; height: 100%;
       background: linear-gradient(100deg, transparent, rgba(255,255,255,0.55), transparent);
       transform: skewX(-20deg);
-      animation: riflesso 4.5s ease-in-out 2s infinite;
+      animation: none;
       pointer-events: none;
     }
 
-    @keyframes riflesso {
-      0% { left: -60%; }
-      30%, 100% { left: 130%; }
-    }
 
     /* il bottone del modulo in rilievo: luce in alto, bordo scuro sotto che si abbassa quando lo si tocca, e il riflesso */
     .form .cta-btn {
@@ -258,7 +254,7 @@
       width: 40%; height: 100%;
       background: linear-gradient(100deg, transparent, rgba(255,255,255,0.28), transparent);
       transform: skewX(-20deg);
-      animation: riflesso 4.5s ease-in-out 3.5s infinite;
+      animation: none;
       pointer-events: none;
     }
 
@@ -341,9 +337,43 @@
       .cta-btn { font-size: 0.98rem; letter-spacing: 0.02em; padding: 0.9rem 0.9rem; }
     }
 
+    /* i due bottoni, quando arrivano nello schermo, cadono e rimbalzano (0,15-1,25 s). Poi riflesso e freccia, mai
+       insieme sui due bottoni: un giro comune di 9 s, prima metà al bottone della recensione (riflesso 0-15%, freccia
+       15-35%), seconda metà a quello del modulo (50-65%, 65-85%). Il giro è lo stesso orologio per tutti e due: lo script
+       mette in --fase lo sfasamento giusto nel momento in cui il bottone compare. */
+    .js .cta-btn:not(.visible) { opacity: 0; }
+    .js .cta-btn.visible { animation: rimbalzo 1.1s cubic-bezier(.3,.6,.4,1) 0.15s backwards; }
+    .js .cta-btn.review.visible::after { animation: riflesso-primo 9s ease-in-out var(--fase, 1.25s) infinite; }
+    .js .cta-btn.review.visible .cta-arrow { display: inline-block; animation: freccia-prima 9s ease-in-out var(--fase, 1.25s) infinite; }
+    .js .form .cta-btn.visible::after { animation: riflesso-secondo 9s ease-in-out var(--fase, 1.25s) infinite; }
+    .js .form .cta-btn.visible .cta-arrow { display: inline-block; animation: freccia-seconda 9s ease-in-out var(--fase, 1.25s) infinite; }
+
+    @keyframes riflesso-primo   { 0% { left: -60%; } 15%, 100% { left: 130%; } }
+    @keyframes riflesso-secondo { 0%, 50% { left: -60%; } 65%, 100% { left: 130%; } }
+
+    @keyframes freccia-prima {
+      0%, 15%, 25%, 35%, 100% { transform: translateX(0); }
+      20%, 30%                { transform: translateX(6px); }
+    }
+
+    @keyframes freccia-seconda {
+      0%, 65%, 75%, 85%, 100% { transform: translateX(0); }
+      70%, 80%                { transform: translateX(6px); }
+    }
+
+    @keyframes rimbalzo {
+      0%   { opacity: 0; transform: translateY(-36px) scale(0.96); }
+      35%  { opacity: 1; transform: translateY(0) scale(1); }
+      55%  { transform: translateY(-12px); }
+      72%  { transform: translateY(0); }
+      85%  { transform: translateY(-4px); }
+      100% { transform: translateY(0); }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       .cta-btn::after { display: none; }
       .cta-btn { transition: none; }
+      .cta-arrow { animation: none !important; }
     }
 
     /* ======================== SCHERMI PIÙ LARGHI ======================== */
@@ -442,6 +472,23 @@
         el.classList.add("reveal");
         osservatore.observe(el);
       });
+      // i bottoni hanno la loro animazione (rimbalzo, riflesso, freccia): si osservano senza la classe .reveal.
+      // Quando un bottone compare, --fase allinea il suo giro di 9 s a un orologio comune, così i due bottoni restano
+      // alternati qualunque sia il momento in cui il lettore ci arriva. L'orologio parte quando finisce il rimbalzo del
+      // primo bottone che compare: il suo riflesso arriva subito, senza aspettare un giro.
+      var GIRO = 9000, DOPO_RIMBALZO = 1250, origine = null;
+      var bottoni = new IntersectionObserver(function (voci) {
+        voci.forEach(function (voce) {
+          if (!voce.isIntersecting) return;
+          var inizio = performance.now() + DOPO_RIMBALZO;
+          if (origine === null) origine = inizio;
+          var fase = (inizio - origine) % GIRO;
+          voce.target.style.setProperty("--fase", (DOPO_RIMBALZO - fase) + "ms");
+          voce.target.classList.add("visible");
+          bottoni.unobserve(voce.target);
+        });
+      }, { threshold: 0.15, rootMargin: "0px 0px -30px 0px" });
+      document.querySelectorAll(".cta-btn").forEach(function (el) { bottoni.observe(el); });
     })();
   </script>
 </body>
