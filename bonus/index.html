@@ -74,14 +74,16 @@
     .cta-btn:focus-visible { outline: 3px solid var(--forest); outline-offset: 3px; }
     .cta-arrow { opacity: 0.75; }
 
-    /* sulla fascia scura il bottone è rame lucido, come il filo: dall'oro schiarito all'oro chiaro, con un filo di luce in alto
-       e un'ombra interna in basso. Sotto il testo non c'è mai un colore più scuro dell'oro chiaro, la coppia che il controllo
-       dei contrasti misura già («Confirmed» e link del piè di pagina). */
+    /* sulla fascia scura il primo bottone è metallo spazzolato: tre colori dall'alto in basso (qr.bridge.colori.bottone,
+       o dalla palette), righe sottili come la spazzolatura, un filo di luce in alto e un'ombra interna in basso.
+       Il controllo dei contrasti misura il testo su ciascuno dei tre colori. */
     .hero .cta-btn {
-      background-color: var(--gold-bright);
-      background-image: linear-gradient(180deg, color-mix(in srgb, var(--gold-bright) 55%, white) 0%, var(--gold-bright) 60%);
+      background-color: #F3A14B;
+      background-image:
+        repeating-linear-gradient(100deg, rgba(255,255,255,0.08) 0 1px, transparent 1px 3px),
+        linear-gradient(180deg, #F7C979 0%, #F3A14B 50%, #E27C30 100%);
       color: var(--forest);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.55), inset 0 -3px 0 rgba(0,0,0,0.14), 0 6px 20px rgba(0,0,0,0.35);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.55), inset 0 -3px 0 rgba(0,0,0,0.15), 0 6px 22px rgba(0,0,0,0.35);
     }
 
     .hero .cta-btn:focus-visible { outline-color: var(--white); }
@@ -132,19 +134,38 @@
       margin-bottom: 0.3rem;
     }
 
-    .bonus-gain {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 1.25rem;
-      font-weight: 600;
-      line-height: 1.25;
-      margin-bottom: 0.35rem;
+    /* «Your free bonus» come metallo: tre colori dall'alto in basso (qr.bridge.colori.titolo, o dalla palette),
+       un'ombra stretta sotto le lettere, un alone, e il riflesso che lo attraversa */
+    .glint {
+      color: #F7C979;
+      filter: drop-shadow(0 2px 0 rgba(0,0,0,0.35)) drop-shadow(0 0 16px rgba(255,220,170,0.3));
+    }
+
+    @supports ((-webkit-background-clip: text) or (background-clip: text)) {
+      .glint {
+        background-image:
+          linear-gradient(110deg, transparent 0%, transparent 42%, rgba(255,255,255,0.95) 50%, transparent 58%, transparent 100%),
+          linear-gradient(180deg, #FBE0A8 10%, #F7C979 45%, #F3A14B 90%);
+        background-size: 300% 100%, 100% 100%;
+        background-position: 100% 0, 0 0;
+        background-repeat: no-repeat;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: riflesso-testo 4.5s ease-in-out 1.1s infinite;
+      }
+    }
+
+    @keyframes riflesso-testo {
+      0% { background-position: 100% 0, 0 0; }
+      30%, 100% { background-position: 0% 0, 0 0; }
     }
 
     .bonus-sub {
       font-size: 1rem;
       line-height: 1.5;
       color: rgba(255,255,255,0.82);
-      margin-bottom: 0.7rem;
+      margin: 0.35rem 0 0.7rem;
     }
 
     /* i nomi dei bonus come testo: chi arriva da un riquadro del libro ci riconosce il suo */
@@ -177,7 +198,9 @@
       content: counter(bonus);
       width: 1.35rem; height: 1.35rem;
       border-radius: 50%;
-      background: var(--gold-bright);
+      /* stessi colori del primo bottone: il testo scuro su ciascuno è già misurato dal controllo dei contrasti */
+      background: linear-gradient(180deg, #F7C979 0%, #F3A14B 100%);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.45);
       color: var(--forest);
       font-size: 0.78rem;
       font-weight: 800;
@@ -237,6 +260,7 @@
     .bonus-content { padding: 1.35rem 1.1rem 1.1rem; }
 
     .card-title {
+      text-align: center;
       font-family: 'Playfair Display', Georgia, serif;
       font-size: 1.2rem;
       font-weight: 700;
@@ -389,11 +413,16 @@
       width: 40%; height: 100%;
       background: linear-gradient(100deg, transparent, rgba(255,255,255,0.55), transparent);
       transform: skewX(-20deg);
-      animation: riflesso 4.5s ease-in-out 1.5s infinite;
+      animation: riflesso 4.5s ease-in-out 3s infinite;
       pointer-events: none;
     }
 
-    /* sul bottone scuro il riflesso è più tenue, e parte sfasato rispetto a quello in alto */
+    /* il riflesso passa dal titolo al bottone in alto senza pausa. Stesso ciclo di 4,5 s e stessa velocità (passaggio di
+       1,35 s): il titolo parte a 1,1 s; il bottone a 2 s, mentre la luce sta lasciando il titolo, perché ciascun passaggio
+       rallenta alla fine e il riflesso del bottone parte fuori dal bottone: partendo a fine titolo resterebbe un vuoto */
+    .hero .cta-btn::after { animation-delay: 2s; }
+
+    /* sul bottone scuro il riflesso è più tenue, col suo ritmo: in fondo alla pagina non si vede insieme agli altri due */
     .closing .cta-btn::after {
       background: linear-gradient(100deg, transparent, rgba(255,255,255,0.22), transparent);
       animation-delay: 3s;
@@ -406,6 +435,7 @@
 
     @media (prefers-reduced-motion: reduce) {
       .cta-btn::after { display: none; }
+      .glint { animation: none; }
       .cta-btn { transition: none; }
     }
 
@@ -432,7 +462,6 @@
       .hero-inner { max-width: 680px; }
       .hero .cta-btn { max-width: 380px; margin: 1.5rem auto 0; }
       .bonus-label { font-size: 2.3rem; }
-      .bonus-gain { font-size: 1.45rem; }
       .bonus-sub { font-size: 1.08rem; }
 
       .bonus { padding: 0.4rem 1.5rem 1.5rem; }
@@ -458,8 +487,7 @@
   <section class="hero">
     <div class="hero-inner">
       <div class="hero-head">
-        <h1 class="bonus-label">🎁 Your free bonus</h1>
-        <p class="bonus-gain">Here's what you'll gain</p>
+        <h1 class="bonus-label"><span class="gift" aria-hidden="true">🎁</span> <span class="glint">Your free bonus</span></h1>
         <p class="bonus-sub">All 3 free guides from the book, including the one you just scanned for:</p>
         <ul class="titles">
           <li>Trusted Supply Shops</li>
@@ -481,7 +509,7 @@
     </div>
     <div class="bonus-card">
       <div class="bonus-content">
-        <h2 class="card-title">Your Wire Wrapped Bonus Bundle</h2>
+        <h2 class="card-title">Here's what you'll gain:</h2>
         <ol class="included">
           <li class="included-item">
             <span class="included-icon" aria-hidden="true">1</span>
