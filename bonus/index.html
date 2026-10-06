@@ -400,7 +400,12 @@
 
     .js .included-item.visible .included-icon { background: var(--forest); color: var(--white); }
 
-    /* uno dopo l'altro: le voci entrano nello schermo quasi insieme, i numeri si accendono a 0,7 s di distanza */
+    /* le voci compaiono una dopo l'altra, a 0,45 s di distanza, anche quando entrano nello schermo tutte insieme */
+    .js .included-item.reveal:nth-child(2) { transition-delay: 0.45s; }
+    .js .included-item.reveal:nth-child(3) { transition-delay: 0.9s; }
+    .js .included-item.reveal:nth-child(4) { transition-delay: 1.35s; }
+
+    /* e i numeri si accendono a 0,7 s di distanza, ciascuno dopo che la sua voce è comparsa */
     .js .included-item:nth-child(2) .included-icon { transition-delay: 1.2s; }
     .js .included-item:nth-child(3) .included-icon { transition-delay: 1.9s; }
     .js .included-item:nth-child(4) .included-icon { transition-delay: 2.6s; }
