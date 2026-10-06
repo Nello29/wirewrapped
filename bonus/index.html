@@ -438,6 +438,32 @@
       30%, 100% { left: 130%; }
     }
 
+    /* il bottone in fondo, quando arriva nello schermo: spunta con un piccolo rimbalzo, poi la freccia spinge due volte.
+       Animazione e non transizione, così finita la scena il bottone torna normale e risponde al tocco. */
+    .js .closing .cta-btn:not(.visible) { opacity: 0; }
+    .js .closing .cta-btn.visible { animation: spunta 0.7s cubic-bezier(.2,1.3,.4,1) 0.15s backwards; }
+    .js .closing .cta-btn.visible .cta-arrow { animation: spinta 0.9s ease-in-out 0.9s 2; }
+
+    @keyframes spunta {
+      0%   { opacity: 0; transform: translateY(16px) scale(0.9); }
+      60%  { opacity: 1; transform: translateY(0) scale(1.04); }
+      100% { opacity: 1; transform: none; }
+    }
+
+    /* anche il bottone in alto: la freccia spinge due volte subito dopo il passaggio del riflesso, e così a ogni giro */
+    .hero .cta-arrow { display: inline-block; animation: spinta-giro 4.5s ease-in-out 3.2s infinite; }
+
+    @keyframes spinta-giro {
+      0%, 40%, 100% { transform: translateX(0); }
+      10%, 30%      { transform: translateX(6px); }
+      20%           { transform: translateX(0); }
+    }
+
+    @keyframes spinta {
+      0%, 100% { transform: translateX(0); }
+      50%      { transform: translateX(6px); }
+    }
+
     /* all'apertura l'immagine del bundle cade sulla curva e rimbalza due volte prima di fermarsi */
     .bonus-visual img { animation: rimbalzo 1.1s cubic-bezier(.3,.6,.4,1) 0.35s both; }
 
@@ -451,7 +477,7 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .bonus-visual img { animation: none; }
+      .bonus-visual img, .hero .cta-arrow { animation: none; }
       .cta-btn::after { display: none; }
       .glint { animation: none; }
       .cta-btn { transition: none; }
@@ -590,6 +616,8 @@
         el.classList.add("reveal");
         osservatore.observe(el);
       });
+      // il bottone in fondo ha la sua animazione (vedi «spunta»): si osserva senza la classe .reveal
+      document.querySelectorAll(".closing .cta-btn").forEach(function (el) { osservatore.observe(el); });
     })();
   </script>
 </body>
