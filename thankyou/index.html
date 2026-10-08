@@ -7,7 +7,7 @@
   <meta name="description" content="Thank you for downloading The Wire-Wrapped Jewelry Handbook! Check your email for your free copy and discover how to unlock your exclusive Wire Wrapped Bonus Bundle.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=DM+Sans:wght@400;500;600;700&family=Caveat:wght@600&display=swap" rel="stylesheet">
   <style>
     :root {
       --forest:        #0B2F35;
@@ -114,41 +114,6 @@
       color: var(--white);
     }
 
-    .confirmed-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      font-size: 0.82rem;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--gold-bright);
-      margin-bottom: 1rem;
-    }
-
-    .confirmed-tag svg {
-      width: 18px; height: 18px;
-      fill: none;
-      stroke: var(--gold-bright);
-      stroke-width: 2.5;
-    }
-
-    .hero h1 {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 2.2rem;
-      font-weight: 700;
-      line-height: 1.18;
-      margin-bottom: 0.75rem;
-      letter-spacing: -0.01em;
-    }
-
-    .hero-desc {
-      font-size: 1.05rem;
-      line-height: 1.6;
-      color: rgba(255,255,255,0.78);
-      max-width: 400px;
-    }
-
     /* ======================== MAIN CONTENT ======================== */
     .main-content {
       max-width: 640px;
@@ -173,117 +138,6 @@
       font-size: 1rem;
       color: var(--text-secondary);
     }
-
-    /* Steps */
-    .steps {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-      margin-bottom: 2.5rem;
-      position: relative;
-    }
-
-    .steps::before {
-      content: "";
-      position: absolute;
-      left: 19px;
-      top: 28px;
-      bottom: 28px;
-      width: 2px;
-      background: linear-gradient(180deg, var(--teal), var(--sage));
-      opacity: 0.25;
-    }
-
-    .step {
-      display: flex;
-      align-items: center;
-      gap: 1.2rem;
-      padding: 0.95rem 0;
-    }
-
-    .step-dot {
-      width: 40px; height: 40px;
-      flex-shrink: 0;
-      background: var(--forest);
-      color: var(--white);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.85rem;
-      font-weight: 700;
-      position: relative;
-      z-index: 1;
-      box-shadow: 0 0 0 4px var(--cream);
-    }
-
-    .step p {
-      font-size: 1.05rem;
-      color: var(--text);
-    }
-
-    .step strong {
-      color: var(--forest);
-      font-weight: 600;
-    }
-
-    .divider {
-      width: 60px;
-      height: 2px;
-      background: linear-gradient(90deg, var(--terracotta), var(--gold));
-      margin: 0 auto 2.5rem;
-      border-radius: 2px;
-    }
-
-    /* Tips */
-    .tips {
-      background: var(--warm-white);
-      padding: 1.5rem 1.6rem;
-      border-radius: 0.75rem;
-      box-shadow: var(--shadow-sm);
-      margin-bottom: 2.5rem;
-    }
-
-    .tips-title {
-      font-size: 0.88rem;
-      font-weight: 700;
-      color: var(--forest);
-      margin-bottom: 0.7rem;
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
-
-    .tips-title svg {
-      width: 16px; height: 16px;
-      stroke: var(--terracotta);
-      fill: none;
-      stroke-width: 2;
-    }
-
-    .tips ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    .tips li {
-      font-size: 0.9rem;
-      color: var(--text-secondary);
-      padding: 0.25rem 0;
-      padding-left: 1.3rem;
-      position: relative;
-    }
-
-    .tips li::before {
-      content: "";
-      position: absolute;
-      left: 0; top: 0.55rem;
-      width: 6px; height: 6px;
-      background: var(--sage);
-      border-radius: 50%;
-    }
-
-    .tips li strong { color: var(--text); }
 
     /* ======================== TRUST BAR ======================== */
     .trust {
@@ -544,12 +398,6 @@
 
       .hero-book { width: 150px; }
       .book-cover, .book-wrap::before { transform: none; }
-      .hero h1 { font-size: 1.6rem; }
-
-      .hero-desc {
-        margin: 0 auto;
-        font-size: 0.95rem;
-      }
 
       .main-content {
         padding: 2.5rem 1.25rem 1.5rem;
@@ -584,7 +432,6 @@
     @media (min-width: 900px) {
       .hero-inner { padding: 4rem 2rem 3.5rem; }
       .hero-book  { width: 220px; }
-      .hero h1    { font-size: 2.6rem; }
       .email-heading h2 { font-size: 1.85rem; }
       .bonus h2   { font-size: 2rem; }
       .bonus-card { grid-template-columns: 360px 1fr; }
@@ -850,11 +697,11 @@
 
     /* ======================== PAGINE DEL LIBRO (flipbook) ======================== */
     /* ======================== APERTURA COMPATTA ======================== */
-    /* un solo titolo forte che dice cosa fare, come la bridge page del QR (scelta dell'utente, 08-10-26):
-       la copertina fissa sparisce, il libro lo mostra il flipbook più sotto */
-    .hero:has(.h-title) .hero-book,
-    .hero:has(.h-title)::after { display: none; }
-    .hero:has(.h-title) .hero-inner { justify-content: center; text-align: center; padding-top: 2.5rem; padding-bottom: 2.5rem; }
+    /* un solo titolo forte che dice cosa fare, come la bridge page del QR (scelta dell'utente, 08-10-26).
+       Con il libro da sfogliare la copertina fissa sparisce (la mostra il flipbook) e il testo va al centro */
+    body:has(.peek) .hero-book,
+    body:has(.peek) .hero::after { display: none; }
+    body:has(.peek) .hero-inner { justify-content: center; text-align: center; padding-top: 2.5rem; padding-bottom: 2.5rem; }
 
     .h-pill {
       display: inline-flex;
@@ -878,6 +725,7 @@
       font-weight: 800;
       font-size: 3rem;
       line-height: 1.1;
+      letter-spacing: -0.01em;
       margin: 0 0 0.7rem;
       background: linear-gradient(180deg, var(--gold-pale) 0%, var(--gold-bright) 45%, var(--gold) 100%);
       -webkit-background-clip: text;
@@ -890,13 +738,15 @@
       font-size: 1.05rem;
       line-height: 1.5;
       max-width: 440px;
-      margin: 0 auto;
     }
+
+    body:has(.peek) .h-sub { margin: 0 auto; }
 
     .h-sub strong { color: var(--white); }
 
     @media (max-width: 700px) {
       .hero .h-title { font-size: 2.35rem; }
+      .h-sub { margin: 0 auto; }
     }
 
     .peek {
@@ -1266,7 +1116,6 @@
 
   <!-- ============== MAIN CONTENT ============== -->
   <div class="main-content">
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap" rel="stylesheet">
     <div class="email-heading">
       <h2>Grab Your Copy in 3 Simple Steps</h2>
       <p>Your download link is waiting in your inbox right now.</p>
