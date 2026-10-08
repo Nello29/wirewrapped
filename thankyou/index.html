@@ -595,6 +595,655 @@
       .bonus-visual { aspect-ratio: auto; display: flex; align-items: center; background: var(--forest); }
       .bonus-visual img { height: auto; aspect-ratio: 1 / 1; }
     }
+
+    /* ======================== PASSI COMPATTI ======================== */
+    .qsteps {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1.75rem;
+      position: relative;
+    }
+
+    .qstep {
+      display: flex;
+      gap: 1rem;
+      position: relative;
+      padding-bottom: 1.6rem;
+    }
+
+    .qstep:last-child { padding-bottom: 0; }
+
+    /* il filo che unisce i passi */
+    .qstep:not(:last-child)::before {
+      content: "";
+      position: absolute;
+      left: 17px; top: 38px; bottom: 4px;
+      width: 2px;
+      background: linear-gradient(180deg, var(--teal), var(--sage));
+      opacity: 0.25;
+    }
+
+    .qstep-dot {
+      width: 36px; height: 36px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      background: var(--forest);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    .qstep-body { flex: 1; min-width: 0; padding-top: 0.35rem; }
+
+    .qstep-title {
+      font-size: 1.08rem;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.35;
+    }
+
+    .qstep-title strong { color: var(--forest); }
+
+    .qstep-sub {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin-top: 0.2rem;
+    }
+
+    .qstep-safe {
+      display: flex;
+      gap: 0.45rem;
+      align-items: flex-start;
+    }
+
+    .qstep-safe svg {
+      width: 15px; height: 15px;
+      flex-shrink: 0;
+      margin-top: 0.22rem;
+      stroke: var(--forest);
+      fill: none;
+      stroke-width: 2;
+    }
+
+    /* l'email d'esempio dentro un telefono disegnato (proposta A, scelta l'08-10-26) */
+    .phone-ex {
+      position: relative;
+      width: fit-content;
+      margin: 0.8rem auto 0;
+    }
+
+    .phone-ex-frame {
+      width: 270px;
+      background: #F6F8FC;
+      border: 10px solid #1D2226;
+      border-bottom: none;
+      border-radius: 34px 34px 0 0;
+      padding: 26px 10px 0;
+      position: relative;
+      box-shadow: var(--shadow-lg);
+      -webkit-mask-image: linear-gradient(180deg, #000 72%, transparent);
+      mask-image: linear-gradient(180deg, #000 72%, transparent);
+    }
+
+    .phone-ex-notch {
+      position: absolute;
+      top: 6px; left: 50%;
+      transform: translateX(-50%);
+      width: 70px; height: 16px;
+      background: #1D2226;
+      border-radius: 10px;
+    }
+
+    .phone-ex-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #3C4043;
+      padding: 0 4px 8px;
+    }
+
+    .phone-ex-bar b { font-size: 1rem; }
+
+    .phone-ex-search {
+      background: #E9EEF6;
+      border-radius: 20px;
+      font-size: 0.72rem;
+      color: #5F6368;
+      padding: 0.4rem 0.8rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .phone-ex-row {
+      display: flex;
+      gap: 0.55rem;
+      align-items: center;
+      padding: 0.55rem 0.35rem;
+      border-radius: 10px;
+    }
+
+    .phone-ex-dim .av { width: 28px; height: 28px; border-radius: 50%; background: #D7DCE3; flex-shrink: 0; }
+    .phone-ex-dim .ln { flex: 1; }
+    .phone-ex-dim .ln i { display: block; height: 7px; border-radius: 4px; background: #DDE2E8; margin: 4px 0; }
+    .phone-ex-dim .ln i:first-child { width: 45%; background: #CFD5DD; }
+    .phone-ex-dim .ln i:last-child { width: 85%; }
+
+    .phone-ex-hit {
+      background: var(--white);
+      box-shadow: 0 0 0 2px var(--gold), 0 6px 18px rgba(0,0,0,0.12);
+    }
+
+    .phone-ex-hit .inbox-avatar { width: 28px; height: 28px; font-size: 0.8rem; }
+    .phone-ex-hit .inbox-top,
+    .phone-ex-hit .inbox-subject { font-size: 0.78rem; }
+    .phone-ex-hit .inbox-snippet { font-size: 0.72rem; }
+    .phone-ex-hit .inbox-time { font-size: 0.65rem; }
+
+    /* a sinistra del telefono, la freccia scende sull'email evidenziata */
+    .phone-ex-note {
+      position: absolute;
+      right: calc(100% - 22px); top: 138px;
+      font-family: 'Caveat', cursive;
+      font-size: 1.6rem;
+      line-height: 1;
+      color: var(--terracotta);
+      transform: rotate(-6deg);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      white-space: nowrap;
+    }
+
+    .phone-ex-note svg {
+      width: 40px; height: 30px;
+      margin-right: -4px;
+      stroke: var(--terracotta);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+    }
+
+    @media (max-width: 420px) {
+      .phone-ex { margin-right: 0; }  /* il telefono a destra: a sinistra resta lo spazio per la scritta */
+      .phone-ex-frame { width: 225px; }
+      .phone-ex-note { font-size: 1.35rem; }
+    }
+
+    .inbox-avatar {
+      width: 36px; height: 36px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      background: var(--forest);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .inbox-body { min-width: 0; flex: 1; }
+
+    .inbox-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.5rem;
+      font-size: 0.92rem;
+    }
+
+    .inbox-from { font-weight: 700; color: var(--text); }
+    .inbox-time { font-size: 0.78rem; color: var(--text-secondary); font-weight: 600; }
+
+    .inbox-subject,
+    .inbox-snippet {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .inbox-subject { font-size: 0.92rem; font-weight: 600; color: var(--text); }
+    .inbox-snippet { font-size: 0.85rem; color: var(--text-secondary); }
+
+    /* «Can't find it?» */
+    .qtips {
+      background: var(--warm-white);
+      border-radius: 0.75rem;
+      box-shadow: var(--shadow-sm);
+      padding: 1.1rem 1.2rem 0.3rem;
+      margin-bottom: 1rem;
+    }
+
+    .qtips-q {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--forest);
+      margin-bottom: 0.4rem;
+    }
+
+    .qtips ul {
+      list-style: none;
+      padding: 0 0 0.8rem;
+      margin: 0;
+    }
+
+    .qtips li {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      padding: 0.25rem 0 0.25rem 1.3rem;
+      position: relative;
+    }
+
+    .qtips li::before {
+      content: "";
+      position: absolute;
+      left: 0; top: 0.6rem;
+      width: 6px; height: 6px;
+      background: var(--sage);
+      border-radius: 50%;
+    }
+
+    .qtips li strong { color: var(--text); }
+
+    /* ======================== PAGINE DEL LIBRO (flipbook) ======================== */
+    /* ======================== APERTURA COMPATTA ======================== */
+    /* un solo titolo forte che dice cosa fare, come la bridge page del QR (scelta dell'utente, 08-10-26):
+       la copertina fissa sparisce, il libro lo mostra il flipbook più sotto */
+    .hero:has(.h-title) .hero-book,
+    .hero:has(.h-title)::after { display: none; }
+    .hero:has(.h-title) .hero-inner { justify-content: center; text-align: center; padding-top: 2.5rem; padding-bottom: 2.5rem; }
+
+    .h-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.18);
+      color: var(--white);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      padding: 0.35rem 0.8rem;
+      border-radius: 999px;
+      margin-bottom: 1rem;
+    }
+
+    .h-pill svg { width: 15px; height: 15px; stroke: var(--gold-bright); fill: none; stroke-width: 3; }
+
+    .hero .h-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 800;
+      font-size: 3rem;
+      line-height: 1.1;
+      margin: 0 0 0.7rem;
+      background: linear-gradient(180deg, var(--gold-pale) 0%, var(--gold-bright) 45%, var(--gold) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .h-sub {
+      color: rgba(255,255,255,0.85);
+      font-size: 1.05rem;
+      line-height: 1.5;
+      max-width: 440px;
+      margin: 0 auto;
+    }
+
+    .h-sub strong { color: var(--white); }
+
+    @media (max-width: 700px) {
+      .hero .h-title { font-size: 2.35rem; }
+    }
+
+    .peek {
+      background:
+        radial-gradient(ellipse at 50% 0%, rgba(255,255,255,0.07) 0%, transparent 60%),
+        linear-gradient(180deg, var(--forest) 0%, var(--forest-mid) 100%);
+      padding: 3.75rem 1rem 3.25rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .peek-inner {
+      max-width: 980px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .peek-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold-bright);
+      margin-bottom: 0.5rem;
+    }
+
+    .peek h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.85rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+
+    .peek-sub {
+      color: rgba(255,255,255,0.78);
+      max-width: 560px;
+      margin: 0 auto 2.25rem;
+    }
+
+    .flip-stage {
+      position: relative;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    /* ombra morbida del libro sul "tavolo" */
+    .flip-stage::after {
+      content: "";
+      position: absolute;
+      left: 8%; right: 8%; bottom: -18px;
+      height: 36px;
+      background: radial-gradient(ellipse at center, rgba(0,0,0,0.45) 0%, transparent 70%);
+      filter: blur(6px);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .flip-book { position: relative; z-index: 1; margin: 0 auto; }
+
+    .flip-page {
+      background: var(--white);
+      overflow: hidden;
+    }
+
+    .flip-page img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      user-select: none;
+      -webkit-user-drag: none;
+      pointer-events: none;
+    }
+
+    /* senza JavaScript (o prima che parta) le pagine restano in fila da scorrere */
+    .flip-book:not(.flip-ready) {
+      display: flex;
+      gap: 1rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding-bottom: 1rem;
+    }
+    .flip-book:not(.flip-ready) .flip-page {
+      flex: 0 0 min(70vw, 260px);
+      scroll-snap-align: center;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .flip-end {
+      background: linear-gradient(160deg, var(--cream) 0%, var(--cream-dark) 100%);
+      display: flex;
+    }
+
+    .flip-end-inner {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 12% 10%;
+      border: 2px solid var(--gold);
+      margin: 6%;
+      height: 88%;
+    }
+
+    .flip-end-kicker {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      margin-bottom: 0.75rem;
+    }
+
+    .flip-end h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.2rem, 2.6vw, 1.6rem);
+      line-height: 1.25;
+      color: var(--forest);
+      margin-bottom: 0.9rem;
+    }
+
+    .flip-end p { color: var(--text-secondary); font-size: 0.95rem; }
+    .flip-end strong { color: var(--forest); }
+
+    .flip-end-icon {
+      font-size: 2.2rem;
+      margin-top: 1.25rem;
+    }
+
+    /* il gesto animato sul libro: compare dopo che la copertina si è aperta, sparisce al primo gesto del lettore */
+    .swipe-hint {
+      position: absolute;
+      z-index: 5;
+      width: 0; height: 0;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+
+    .swipe-hint.swipe-on { opacity: 1; }
+
+    /* il dito: la punta dell'indice (circa 11.5, 7 nel disegno da 24) cade sull'origine del suggerimento */
+    .swipe-hand {
+      position: absolute;
+      left: -40px; top: -24px;
+      width: 84px; height: 84px;
+      fill: var(--white);
+      stroke: var(--forest);
+      stroke-width: 0.7;
+      paint-order: stroke;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.45));
+      transform-origin: 46% 30%;
+      animation: swipe-gesto 2s ease-in-out infinite;
+    }
+
+    .swipe-trail {
+      position: absolute;
+      left: 0; top: -4px;
+      height: 8px; width: 0;
+      border-radius: 8px;
+      background: linear-gradient(90deg, color-mix(in srgb, var(--gold-bright) 90%, transparent), transparent);
+      animation: swipe-scia 2s ease-in-out infinite;
+    }
+
+    .swipe-label {
+      position: absolute;
+      top: 70px; left: 0;
+      transform: translateX(-50%);
+      background: rgba(11,20,22,0.78);
+      color: var(--white);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      padding: 0.3rem 0.75rem;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    @keyframes swipe-gesto {
+      0%   { transform: translateX(70px) rotate(8deg);  opacity: 0; }
+      15%  { transform: translateX(70px) rotate(8deg);  opacity: 1; }
+      65%  { transform: translateX(-70px) rotate(-6deg); opacity: 1; }
+      85%, 100% { transform: translateX(-70px) rotate(-6deg); opacity: 0; }
+    }
+
+    @keyframes swipe-scia {
+      0%, 15% { left: 70px; width: 0; opacity: 0; }
+      65%     { left: -70px; width: 140px; opacity: 1; }
+      85%, 100% { left: -70px; width: 0; opacity: 0; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .swipe-hand, .swipe-trail { animation: none; }
+    }
+
+    .flip-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.25rem;
+      margin-top: 2rem;
+    }
+
+    .flip-btn {
+      width: 46px; height: 46px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.25);
+      background: rgba(255,255,255,0.08);
+      color: var(--white);
+      font-size: 1.4rem;
+      line-height: 1;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s, transform 0.2s, opacity 0.2s;
+    }
+
+    .flip-btn:hover { background: rgba(255,255,255,0.18); transform: scale(1.06); }
+    .flip-btn:focus-visible { outline: 2px solid var(--gold-bright); outline-offset: 3px; }
+    .flip-btn[disabled] { opacity: 0.3; cursor: default; transform: none; }
+
+    .flip-progress {
+      width: 160px;
+      text-align: center;
+    }
+
+    .flip-count {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.85);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .flip-bar {
+      height: 3px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 3px;
+      margin-top: 0.45rem;
+      overflow: hidden;
+    }
+
+    .flip-bar span {
+      display: block;
+      height: 100%;
+      width: 0;
+      background: linear-gradient(90deg, var(--gold), var(--gold-bright));
+      transition: width 0.5s ease;
+    }
+
+    .flip-hint {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.6);
+      margin-top: 1rem;
+      transition: opacity 0.4s;
+    }
+
+    .flip-hint.flip-gone { opacity: 0; }
+
+    .peek-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-top: 1.5rem;
+      padding: 0.85rem 1.4rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.18);
+      color: var(--white);
+      font-size: 0.95rem;
+    }
+
+    .peek-cta strong { color: var(--gold-bright); }
+
+    @media (max-width: 700px) {
+      .peek { padding: 2.75rem 1rem 2.5rem; }
+      .peek h2 { font-size: 1.5rem; }
+      .peek-sub { margin-bottom: 1.75rem; }
+      .peek-cta { border-radius: 14px; }
+    }
+
+    /* ======================== NOTA DELL'AUTORE ======================== */
+    .author-note {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 0.5rem 1.5rem 3.5rem;
+    }
+
+    .author-card {
+      background: var(--white);
+      border-radius: 16px;
+      box-shadow: var(--shadow-md);
+      padding: 2rem 1.75rem 1.75rem;
+      position: relative;
+    }
+
+    .author-head {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .author-photo {
+      width: 72px; height: 72px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+      box-shadow: 0 0 0 3px var(--white), 0 0 0 5px var(--gold);
+    }
+
+    .author-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+    }
+
+    .author-card h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.35rem;
+      color: var(--forest);
+      line-height: 1.25;
+    }
+
+    .author-card p {
+      color: var(--text);
+      font-size: 1rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .author-card p strong { color: var(--forest); }
+
+    .author-sign {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-style: italic;
+      font-size: 1.3rem;
+      color: var(--forest);
+      margin-top: 0.25rem;
+    }
+
+    @media (max-width: 700px) {
+      .author-card { padding: 1.6rem 1.25rem 1.4rem; }
+    }
   </style>
 </head>
 <body>
@@ -608,45 +1257,66 @@
         </div>
       </div>
       <div class="hero-text">
-        <div class="confirmed-tag">
-          <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-          Confirmed — You're all set
-        </div>
-        <h1>Your Free Wire-Wrapped Jewelry Guide Is on Its Way</h1>
-        <p class="hero-desc">Great choice. We've sent your personal copy straight to your inbox, it should arrive within the next few minutes.</p>
+        <div class="h-pill"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Confirmed — you're all set</div>
+        <h1 class="h-title" style="background-image: linear-gradient(180deg, #FBE0A8, #F7C979, #F3A14B)">Check Your Inbox</h1>
+        <p class="h-sub">Your free copy of <strong>The Wire-Wrapped Jewelry Handbook</strong> is waiting in an email from <strong>Nancy Ellery</strong>.</p>
       </div>
     </div>
   </section>
 
   <!-- ============== MAIN CONTENT ============== -->
   <div class="main-content">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap" rel="stylesheet">
     <div class="email-heading">
       <h2>Grab Your Copy in 3 Simple Steps</h2>
       <p>Your download link is waiting in your inbox right now.</p>
     </div>
 
-    <div class="steps">
-      <div class="step">
-        <div class="step-dot">1</div>
-        <p>Open your <strong>email app</strong> (Gmail, Yahoo, Outlook…)</p>
-      </div>
-      <div class="step">
-        <div class="step-dot">2</div>
-        <p>Look for the message from <strong>Nancy Ellery</strong></p>
-      </div>
-      <div class="step">
-        <div class="step-dot">3</div>
-        <p>Tap the <strong>download link</strong> inside — and enjoy!</p>
-      </div>
-    </div>
+    <ol class="qsteps">
+      <li class="qstep">
+        <span class="qstep-dot" aria-hidden="true">1</span>
+        <div class="qstep-body">
+          <p class="qstep-title">Open your email app</p>
+          <p class="qstep-sub">Gmail, Yahoo, Outlook…</p>
+        </div>
+      </li>
+      <li class="qstep">
+        <span class="qstep-dot" aria-hidden="true">2</span>
+        <div class="qstep-body">
+          <p class="qstep-title">Find this email from <strong>Nancy Ellery</strong></p>
+          <!-- l'email dentro un telefono disegnato: si capisce a colpo d'occhio che è un esempio, non un pezzo della pagina -->
+          <div class="phone-ex" role="img" aria-label="Example: the email from Nancy Ellery in your inbox">
+            <div class="phone-ex-frame" aria-hidden="true">
+              <div class="phone-ex-notch"></div>
+              <div class="phone-ex-bar"><span>9:41</span><b>Inbox</b><span>●●●</span></div>
+              <div class="phone-ex-search">Search in mail</div>
+              <div class="phone-ex-row phone-ex-dim"><span class="av"></span><span class="ln"><i></i><i></i></span></div>
+              <div class="phone-ex-row phone-ex-hit">
+                <div class="inbox-avatar">N</div>
+                <div class="inbox-body">
+                  <div class="inbox-top"><span class="inbox-from">Nancy Ellery</span><span class="inbox-time">now</span></div>
+                  <div class="inbox-subject">📖 Here's your &quot;The Wire-Wrapped Jewelry Handbook&quot;</div>
+                  <div class="inbox-snippet">Thank you for your interest in The Wire-Wrapped Jewelry Handbook! Your guide is ready to download.</div>
+                </div>
+              </div>
+              <div class="phone-ex-row phone-ex-dim"><span class="av"></span><span class="ln"><i></i><i></i></span></div>
+              <div class="phone-ex-row phone-ex-dim"><span class="av"></span><span class="ln"><i></i><i></i></span></div>
+            </div>
+            <span class="phone-ex-note" aria-hidden="true">this one!<svg viewBox="0 0 40 30"><path d="M4 3 C 16 2, 30 8, 35 24"/><path d="M35 24 l -7 -4 M35 24 l 1 -8"/></svg></span>
+          </div>
+        </div>
+      </li>
+      <li class="qstep">
+        <span class="qstep-dot" aria-hidden="true">3</span>
+        <div class="qstep-body">
+          <p class="qstep-title">Tap the <strong>download button</strong> — and enjoy!</p>
+          <p class="qstep-sub qstep-safe"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><span>Opens as a PDF on Google Drive. No account, no credit card, nothing to pay.</span></p>
+        </div>
+      </li>
+    </ol>
 
-    <div class="divider"></div>
-
-    <div class="tips">
-      <div class="tips-title">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-        Don't see it? Here's where to look
-      </div>
+    <div class="qtips">
+      <p class="qtips-q">Can't find it?</p>
       <ul>
         <li>Check your <strong>Spam</strong> or <strong>Promotions</strong> folder</li>
         <li>Search for "<strong>Nancy Ellery</strong>" in your inbox</li>
@@ -656,20 +1326,192 @@
     </div>
   </div>
 
+  <!-- ============== PAGINE DEL LIBRO ============== -->
+  <section class="peek">
+    <div class="peek-inner">
+      <p class="peek-label">📖 A Peek Inside</p>
+      <h2>Take a Look Inside Your Book</h2>
+      <div class="flip-stage">
+        <div class="flip-book" id="flip-book">
+          <div class="flip-page" data-density="hard"><img data-src="pagina-1.wirewrapped.jpg" alt="Cover – The Wire-Wrapped Jewelry Handbook" width="700" height="914" /></div>
+          <div class="flip-page"><img data-src="pagina-5.wirewrapped.jpg" alt="Contents, page 1 – The Wire-Wrapped Jewelry Handbook" width="700" height="914" /></div>
+          <div class="flip-page"><img data-src="pagina-6.wirewrapped.jpg" alt="Contents, page 2 – The Wire-Wrapped Jewelry Handbook" width="700" height="914" /></div>
+          <div class="flip-page"><img data-src="pagina-14.wirewrapped.jpg" alt="Chapter 1: Your tools – The Wire-Wrapped Jewelry Handbook" width="700" height="914" /></div>
+          <div class="flip-page"><img data-src="pagina-15.wirewrapped.jpg" alt="Chapter 1: Your tools – The Wire-Wrapped Jewelry Handbook" width="700" height="914" /></div>
+          <div class="flip-page"><img data-src="pagina-26.wirewrapped.jpg" alt="Chapter 2: The wire – The Wire-Wrapped Jewelry Handbook" width="700" height="914" /></div>
+          <div class="flip-page"><img data-src="pagina-27.wirewrapped.jpg" alt="Chapter 2: The wire – The Wire-Wrapped Jewelry Handbook" width="700" height="914" /></div>
+          <div class="flip-page"><img data-src="pagina-28.wirewrapped.jpg" alt="Chapter 2: The wire – The Wire-Wrapped Jewelry Handbook" width="700" height="914" /></div>
+          <div class="flip-page"><img data-src="pagina-29.wirewrapped.jpg" alt="Chapter 3: What you wrap – The Wire-Wrapped Jewelry Handbook" width="700" height="914" /></div>
+          <div class="flip-page"><img data-src="pagina-30.wirewrapped.jpg" alt="Chapter 3: stones, beads and found objects – The Wire-Wrapped Jewelry Handbook" width="700" height="914" /></div>
+          <div class="flip-page"><img data-src="pagina-31.wirewrapped.jpg" alt="Chapter 3: stones, beads and found objects – The Wire-Wrapped Jewelry Handbook" width="700" height="914" /></div>
+          <div class="flip-page"><img data-src="pagina-32.wirewrapped.jpg" alt="Chapter 3: stones, beads and found objects – The Wire-Wrapped Jewelry Handbook" width="700" height="914" /></div>
+          <div class="flip-page"><img data-src="pagina-33.wirewrapped.jpg" alt="Chapter 3: stones, beads and found objects – The Wire-Wrapped Jewelry Handbook" width="700" height="914" /></div>
+          <div class="flip-page"><img data-src="pagina-41.wirewrapped.jpg" alt="Book 2: Technique Library – The Wire-Wrapped Jewelry Handbook" width="700" height="914" /></div>
+          <div class="flip-page"><img data-src="pagina-42.wirewrapped.jpg" alt="Technique index – The Wire-Wrapped Jewelry Handbook" width="700" height="914" /></div>
+          <div class="flip-page"><img data-src="pagina-62.wirewrapped.jpg" alt="Technique 16: Wrapped bead links – The Wire-Wrapped Jewelry Handbook" width="700" height="914" /></div>
+          <div class="flip-page"><img data-src="pagina-63.wirewrapped.jpg" alt="Technique 16: Wrapped bead links, step by step – The Wire-Wrapped Jewelry Handbook" width="700" height="914" /></div>
+          <div class="flip-page"><img data-src="pagina-100.wirewrapped.jpg" alt="Book 3: Projects – The Wire-Wrapped Jewelry Handbook" width="700" height="914" /></div>
+          <div class="flip-page"><img data-src="pagina-101.wirewrapped.jpg" alt="Project index – The Wire-Wrapped Jewelry Handbook" width="700" height="914" /></div>
+          <div class="flip-page"><img data-src="pagina-104.wirewrapped.jpg" alt="Project: Ivory Arc Earrings – The Wire-Wrapped Jewelry Handbook" width="700" height="913" /></div>
+          <div class="flip-page"><img data-src="pagina-105.wirewrapped.jpg" alt="Ivory Arc Earrings, step by step – The Wire-Wrapped Jewelry Handbook" width="700" height="913" /></div>
+          <div class="flip-page flip-end" data-density="hard"><div class="flip-end-inner">
+            <p class="flip-end-kicker">Enjoying the preview?</p>
+            <h3>The full book is waiting in your inbox</h3>
+            <p>Open the email from <strong>Nancy Ellery</strong> and tap the download link.</p>
+            <span class="flip-end-icon" aria-hidden="true">✉️</span>
+          </div></div>
+        </div>
+        <div class="swipe-hint" id="swipe-hint" aria-hidden="true"><span class="swipe-trail"></span><svg class="swipe-hand" viewBox="0 0 24 24"><path d="M9 11.24V7.5C9 6.12 10.12 5 11.5 5S14 6.12 14 7.5v3.74c1.21-.81 2-2.18 2-3.74C16 5.01 13.99 3 11.5 3S7 5.01 7 7.5c0 1.56.79 2.93 2 3.74zm9.84 4.63l-4.54-2.26c-.17-.07-.35-.11-.54-.11H13v-6c0-.83-.67-1.5-1.5-1.5S10 6.67 10 7.5v10.74l-3.43-.72c-.08-.01-.15-.03-.24-.03-.31 0-.59.13-.79.33l-.79.8 4.94 4.94c.27.27.65.44 1.06.44h6.79c.75 0 1.33-.55 1.44-1.28l.75-5.27c.01-.07.02-.14.02-.2 0-.62-.38-1.16-.91-1.38z"/></svg><span class="swipe-label" id="swipe-label">Swipe to open</span></div>
+      </div>
+      <div class="flip-controls">
+        <button class="flip-btn" id="flip-prev" type="button" aria-label="Previous page">‹</button>
+        <div class="flip-progress"><span class="flip-count" id="flip-count" aria-live="polite">Cover</span><div class="flip-bar"><span id="flip-bar"></span></div></div>
+        <button class="flip-btn" id="flip-next" type="button" aria-label="Next page">›</button>
+      </div>
+      <p class="flip-hint" id="flip-hint">Swipe, drag a corner or tap the arrows to turn the page</p>
+      <p class="peek-cta">✉️ <span>It's all waiting in your inbox: open the email from <strong>Nancy Ellery</strong></span></p>
+    </div>
+  </section>
+  <script src="page-flip.js"></script>
+  <script>
+  (function () {
+    var libro = document.getElementById('flip-book');
+    if (!libro || !window.St) return;
+    var pagine = libro.querySelectorAll('.flip-page');
+    var prima = libro.querySelector('img');
+    var rapporto = prima ? prima.getAttribute('height') / prima.getAttribute('width') : 1.3;
+    var indietro = document.getElementById('flip-prev');
+    var avanti = document.getElementById('flip-next');
+    var conta = document.getElementById('flip-count');
+    var barra = document.getElementById('flip-bar');
+    var suggerimento = document.getElementById('flip-hint');
+    var sfoglia = null;
+    var gesto = document.getElementById('swipe-hint'), gestoVisto = false;
+    var stage = libro.parentElement;
+
+    function aggiorna() {
+      var i = sfoglia.getCurrentPageIndex(), n = sfoglia.getPageCount();
+      var doppia = sfoglia.getOrientation() === 'landscape' && i > 0 && i < n - 1;
+      conta.textContent = i === 0 ? 'Cover' : (i === n - 1 && !doppia ? 'The end' : 'Page ' + (doppia ? (i + 1) + '–' + Math.min(i + 2, n) : (i + 1)) + ' of ' + n);
+      barra.style.width = Math.round(Math.min(i + (doppia ? 2 : 1), n) / n * 100) + '%';
+      indietro.disabled = i === 0;
+      avanti.disabled = i >= n - (doppia ? 2 : 1);
+    }
+
+    function avvia() {
+      var largo = libro.parentElement.clientWidth;
+      var unaPagina = largo < 620;
+      var w = Math.min(unaPagina ? largo : largo / 2, 380);  // su computer il libro aperto resta dentro lo schermo, frecce comprese
+      sfoglia = new St.PageFlip(libro, {
+        width: Math.round(w), height: Math.round(w * rapporto),
+        size: 'stretch', minWidth: 200, maxWidth: 380,
+        minHeight: Math.round(200 * rapporto), maxHeight: Math.round(380 * rapporto),
+        showCover: true, usePortrait: true, mobileScrollSupport: true,
+        maxShadowOpacity: 0.45, flippingTime: 850, swipeDistance: 20,
+        // a una pagina il trascinamento della libreria va al contrario (08-10-26): lì i gesti li gestisce gesti()
+        useMouseEvents: !unaPagina
+      });
+      if (unaPagina) gesti();
+      sfoglia.loadFromHTML(pagine);
+      libro.classList.add('flip-ready');
+      sfoglia.on('flip', function (e) {
+        carica(e.data + AVANTI);
+        aggiorna();
+        suggerimento.classList.add('flip-gone');
+        nascondiGesto();
+      });
+      sfoglia.on('changeOrientation', aggiorna);
+      indietro.addEventListener('click', function () { sfoglia.flipPrev(); });
+      avanti.addEventListener('click', function () { sfoglia.flipNext(); });
+      document.addEventListener('keydown', function (e) {
+        var r = libro.getBoundingClientRect();
+        if (r.bottom < 0 || r.top > innerHeight) return;
+        if (e.key === 'ArrowRight') sfoglia.flipNext();
+        if (e.key === 'ArrowLeft') sfoglia.flipPrev();
+      });
+      aggiorna();
+    }
+
+    // telefono: swipe orizzontale di qualunque velocità, o tocco sulla metà destra/sinistra; lo scorrimento verticale resta della pagina
+    function gesti() {
+      var inizio = null;
+      libro.style.touchAction = 'pan-y';
+      libro.addEventListener('touchstart', function (e) {
+        nascondiGesto();
+        var t = e.changedTouches[0];
+        inizio = { x: t.clientX, y: t.clientY };
+      }, { passive: true });
+      libro.addEventListener('touchend', function (e) {
+        if (!inizio) return;
+        var t = e.changedTouches[0], dx = t.clientX - inizio.x, dy = t.clientY - inizio.y;
+        var r = libro.getBoundingClientRect();
+        if (Math.abs(dx) > 30 && Math.abs(dx) > Math.abs(dy) * 1.2) {
+          dx < 0 ? sfoglia.flipNext('bottom') : sfoglia.flipPrev('bottom');
+        } else if (Math.abs(dx) < 10 && Math.abs(dy) < 10) {
+          t.clientX > r.left + r.width / 2 ? sfoglia.flipNext('bottom') : sfoglia.flipPrev('bottom');
+        }
+        inizio = null;
+      }, { passive: true });
+    }
+
+    // le immagini si caricano a blocchi: all'inizio le prime, poi sempre qualche pagina avanti a quella aperta
+    var AVANTI = 6;
+    function carica(fino) {
+      libro.querySelectorAll('.flip-page img').forEach(function (img, i) {
+        if (i < fino && img.hasAttribute('data-src')) {
+          img.src = img.getAttribute('data-src');
+          img.removeAttribute('data-src');
+        }
+      });
+    }
+
+    // il dito che scorre sta sulla copertina (scelta dell'utente, 08-10-26: niente apertura automatica):
+    // su telefono al centro, su computer sulla metà destra, dove la copertina sta a libro chiuso
+    function mostraGesto() {
+      if (gestoVisto || !gesto) return;
+      var r = libro.querySelector('.stf__block') ? libro.querySelector('.stf__block').getBoundingClientRect() : libro.getBoundingClientRect();
+      var s = stage.getBoundingClientRect();
+      var unaPagina = sfoglia.getOrientation() === 'portrait';
+      gesto.style.left = (r.left - s.left + r.width * (unaPagina ? 0.5 : 0.75)) + 'px';
+      gesto.style.top = (r.top - s.top + r.height * 0.42) + 'px';
+      document.getElementById('swipe-label').textContent =
+        window.matchMedia && matchMedia('(pointer: coarse)').matches ? 'Swipe to open' : 'Click or drag to open';
+      gesto.classList.add('swipe-on');
+    }
+    function nascondiGesto() {
+      gestoVisto = true;
+      if (gesto) gesto.classList.remove('swipe-on');
+    }
+
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (voci, os) {
+        if (voci[0].isIntersecting) { carica(AVANTI); os.disconnect(); }
+      }, { rootMargin: '800px 0px' }).observe(libro);
+      new IntersectionObserver(function (voci, os) {
+        if (voci[0].isIntersecting) { setTimeout(mostraGesto, 400); os.disconnect(); }
+      }, { threshold: 0.5 }).observe(libro);
+    } else {
+      carica(AVANTI);
+    }
+    avvia();
+    if (!('IntersectionObserver' in window)) mostraGesto();
+  })();
+  </script>
+
   <!-- ============== TRUST BAR ============== -->
   <section class="trust">
     <div class="trust-inner">
       <div class="trust-item">
-        <span class="trust-icon">📖</span>
-        <span>Downloaded by <strong>5,000+</strong> readers</span>
+        <span class="trust-icon">🎨</span>
+        <span><strong>400+</strong> color-coded steps</span>
       </div>
       <div class="trust-item">
-        <span class="trust-icon">⭐</span>
-        <span>Rated <strong>4.8 / 5</strong> on Amazon</span>
+        <span class="trust-icon">🛠️</span>
+        <span><strong>32</strong> step-by-step techniques</span>
       </div>
       <div class="trust-item">
         <span class="trust-icon">💍</span>
-        <span><strong>32</strong> step-by-step techniques</span>
+        <span><strong>14</strong> unique projects</span>
       </div>
     </div>
   </section>
@@ -685,7 +1527,7 @@
 
       <div class="bonus-card">
         <div class="bonus-visual">
-          <img src="bonus.wirewrapped.png" alt="Wire Wrapped Bonus Bundle" />
+          <img src="bonus.wirewrapped.jpg" alt="Wire Wrapped Bonus Bundle" />
         </div>
         <div class="bonus-content">
           <h3>Your Wire Wrapped Bonus Bundle</h3>
@@ -715,6 +1557,23 @@
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ============== NOTA DELL'AUTORE ============== -->
+  <section class="author-note">
+    <div class="author-card">
+      <div class="author-head">
+        <img class="author-photo" src="autore.wirewrapped.jpg" alt="Nancy Ellery" width="144" height="144" loading="lazy" />
+        <div>
+          <p class="author-label">A note from the author</p>
+          <h3>Hi, I'm Nancy</h3>
+        </div>
+      </div>
+      <p>My first supplies sat in a drawer for a whole year before I figured things out by trial and error. I wrote this book so your start is a lot smoother than mine. I'm so glad you're here.</p>
+      <p><strong>Why is it free?</strong> I'll be honest: a new book lives or dies by its first reviews on Amazon. Giving the digital copy to people who'll actually use it is the best way I know to get honest ones. The paperback goes on sale at $24.95; your copy is free.</p>
+      <p>If it helps you, a quick review is all I ask. No obligation, no catch.</p>
+      <p class="author-sign">Nancy Ellery</p>
     </div>
   </section>
 
