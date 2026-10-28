@@ -99,6 +99,16 @@
       transform: perspective(900px) rotateY(0deg) scale(1.03);
     }
 
+    /* il mockup 3D ha già dorso e prospettiva: niente rotazione né striscia del dorso, e l'ombra segue la sagoma */
+    .hero-book:has(.book-mockup) { width: 220px; }
+    .book-wrap:has(.book-mockup)::before { display: none; }
+    .book-mockup, .book-mockup:hover {
+      border-radius: 0;
+      box-shadow: none;
+      transform: none;
+      filter: drop-shadow(0 14px 18px rgba(0,0,0,0.35));
+    }
+
     .book-wrap::before {
       content: "";
       position: absolute;
@@ -397,6 +407,7 @@
       }
 
       .hero-book { width: 150px; }
+      .hero-book:has(.book-mockup) { width: 170px; }
       .book-cover, .book-wrap::before { transform: none; }
 
       .main-content {
@@ -1103,7 +1114,7 @@
     <div class="hero-inner">
       <div class="hero-book">
         <div class="book-wrap">
-          <img src="cover.wirewrapped.jpg" alt="The Wire-Wrapped Jewelry Handbook – Book Cover" class="book-cover" />
+          <img src="mockup.wirewrapped.webp" alt="The Wire-Wrapped Jewelry Handbook – Book Cover" class="book-cover book-mockup" />
         </div>
       </div>
       <div class="hero-text">
