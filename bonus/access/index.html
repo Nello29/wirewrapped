@@ -118,6 +118,14 @@
       border-radius: 4px;
       box-shadow: var(--shadow-book);
     }
+    /* il mockup 3D è trasparente attorno al libro: l'ombra segue la sagoma, non il rettangolo dell'immagine */
+    .book-mockup {
+      width: 165px;
+      height: auto;
+      border-radius: 0;
+      box-shadow: none;
+      filter: drop-shadow(0 10px 14px rgba(0,0,0,0.22));
+    }
 
     /* ======================== SCHEDE ======================== */
     .cards {
@@ -381,6 +389,7 @@
       .band { padding: 2.5rem 1.5rem 96px; border-radius: 0 0 50% 50% / 0 0 80px 80px; }
       .band h1 { font-size: 1.9rem; }
       .book-cover { width: 150px; }
+      .book-mockup { width: 190px; }
       .card-step { font-size: 1rem; }
       .cards { max-width: 620px; padding: 1.75rem 1.5rem 3rem; }
       .card { padding: 2rem 2rem 2.2rem; }
@@ -403,7 +412,7 @@
     <!-- ============== STEP 1: REVIEW ============== -->
     <div class="card">
       <h2 class="card-step"><span class="dot">1</span> Leave a review</h2>
-      <img src="cover.wirewrapped.jpg" alt="The Wire-Wrapped Jewelry Handbook – Book Cover" class="book-cover" width="150" height="225" />
+      <img src="mockup.wirewrapped.webp" alt="The Wire-Wrapped Jewelry Handbook – Book Cover" class="book-cover book-mockup" width="150" height="225" />
       <p>Please leave a quick, helpful review (less than 30 seconds) of your new &quot;The Wire-Wrapped Jewelry Handbook&quot;.</p>
       <p class="muted">(optional, but I'd really love to get your feedback 😍)</p>
       <a class="cta-btn review" href="https://www.amazon.com/review/create-review/?&amp;asin=B0HMG1FB8G" target="_blank" rel="noopener">
